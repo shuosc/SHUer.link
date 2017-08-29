@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html {{ HTML_ATTRS }}>
   <head>
+    <!--[if lte IE 8]>
+    <link href="https://cdn.bootcss.com/pure/1.0.0/grids-min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/pure/1.0.0/grids-responsive-old-ie-min.css" rel="stylesheet">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link href="https://cdn.bootcss.com/pure/1.0.0/grids-min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css" rel="stylesheet">
+    <!--<![endif]-->
     {{ HEAD }}
   </head>
   <body {{ BODY_ATTRS }}>

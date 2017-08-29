@@ -4,6 +4,12 @@
   "description": "Nuxt.js project",
   "author": "cosformula <cosformula@qq.com>",
   "private": true,
+  "config": {
+    "nuxt": {
+      "host": "0.0.0.0",
+      "port": "3333"
+    }
+  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
@@ -13,6 +19,8 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "axios": "^0.16.2",
+    "muse-ui": "^2.1.0",
     "nuxt": "^1.0.0-rc3",
     "purecss": "^1.0.0",
     "stylus": "^0.54.5",
@@ -28,6 +36,9 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1"
+    "eslint-plugin-standard": "^3.0.1",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.5",
+    "raw-loader": "^0.5.1"
   }
 }

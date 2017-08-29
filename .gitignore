@@ -9,3 +9,10 @@ npm-debug.log
 
 # Nuxt generate
 dist
+
+# Editor Configuration File
+.vscode
+.idea
+
+# OS file
+.DS_Store

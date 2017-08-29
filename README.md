@@ -21,13 +21,15 @@
 
 # 完成度
 
-* <input type="checkbox" value=""/>首页布局
+* <input type="checkbox" value="" checked/>首页布局
 * <input type="checkbox" value=""/>首页背景
-* <input type="checkbox" value=""/>搜索框
+* <input type="checkbox" value="" checked/>搜索框
 * <input type="checkbox" value=""/>导航网站
+* <input type="checkbox" value=""/>主题切换
 * <input type="checkbox" value=""/>登陆／设置同步
 * <input type="checkbox" value=""/>chrome插件
 
 # 依赖于
 
 * `purecss`
+* `muse-ui`
