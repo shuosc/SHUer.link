@@ -4,7 +4,7 @@
       <mu-appbar title="SHUer.link">
         <mu-flat-button color="white" label="主  页" slot="right" to="/" />
         <mu-flat-button color="white" label="常用导航" slot="right" to="links" />
-        <mu-icon-button icon="settings" slot="right" @click="toggle()" />
+        <mu-icon-button icon=":iconfont icon-setting" slot="right" @click="toggle()" />
       </mu-appbar>
     </header>
     <mu-drawer right :docked="false" :open="open" @close="toggle()">
@@ -46,6 +46,8 @@
 </script>
 
 <style lang="stylus">
+/*
+   图标全部使用iconfont，去掉Material icon
   @font-face
     font-family 'Material Icons'
     font-style normal
@@ -69,12 +71,12 @@
     word-wrap normal
     white-space nowrap
     direction ltr
-    -webkit-font-smoothing antialiased /* Support for all WebKit browsers. */
-    text-rendering optimizeLegibility /* Support for Safari and Chrome. */
-    -moz-osx-font-smoothing grayscale /* Support for Firefox. */
-    font-feature-settings 'liga'
-  
-  /* Support for IE. */
+    -webkit-font-smoothing antialiased !* Support for all WebKit browsers. *!
+    text-rendering optimizeLegibility !* Support for Safari and Chrome. *!
+    -moz-osx-font-smoothing grayscale !* Support for Firefox. *!
+    font-feature-settings 'liga'  !* Support for IE. *!
+    
+    */
   
   html
     font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;

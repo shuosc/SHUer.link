@@ -1,6 +1,8 @@
 <template>
 	<div class="links">
-	  导航页
+	  <div class="container">
+    
+    </div>
 	</div>
 </template>
 
