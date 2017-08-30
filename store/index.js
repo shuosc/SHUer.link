@@ -12,12 +12,16 @@ const store = () => new Vuex.Store({
     themes: {
       light,
       dark
-    }
+    },
+    device: ''
   },
   mutations: {
     changeTheme (state, val) {
       state.theme = val
     },
+    initDevice (state) {
+      state.device = device.mobile()
+    }
   }
 })
 

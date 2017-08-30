@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="layout">
     <header>
       <mu-appbar title="SHUer.link">
         <mu-flat-button color="white" label="主  页" slot="right" to="/" />
@@ -31,9 +31,10 @@
     },
     components: {
       sidebar
+    },
+    mounted: function () {
+      this.$store.commit('initDevice')
     }
-//    mounted: function () {
-//    },
 //    computed: {
 //      themes () {
 //        return this.$store.state.themes
@@ -46,37 +47,37 @@
 </script>
 
 <style lang="stylus">
-/*
-   图标全部使用iconfont，去掉Material icon
-  @font-face
-    font-family 'Material Icons'
-    font-style normal
-    font-weight 400
-    src: local('Material Icons'),
-      local('MaterialIcons-Regular'),
-      url("https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/MaterialIcons-Regular.ttf") format('truetype'),
-      url("https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/MaterialIcons-Regular.woff2") format('woff2'),
-      url("https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/MaterialIcons-Regular.woff") format('woff')
-  
-  .material-icons
-    font-family 'Material Icons'
-    font-weight normal
-    font-style normal
-    font-size 20px
-    display inline-block
-    line-height 1
-    margin 0
-    text-transform none
-    letter-spacing normal
-    word-wrap normal
-    white-space nowrap
-    direction ltr
-    -webkit-font-smoothing antialiased !* Support for all WebKit browsers. *!
-    text-rendering optimizeLegibility !* Support for Safari and Chrome. *!
-    -moz-osx-font-smoothing grayscale !* Support for Firefox. *!
-    font-feature-settings 'liga'  !* Support for IE. *!
-    
-    */
+  /*
+	 图标全部使用iconfont，去掉Material icon
+	@font-face
+	  font-family 'Material Icons'
+	  font-style normal
+	  font-weight 400
+	  src: local('Material Icons'),
+		local('MaterialIcons-Regular'),
+		url("https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/MaterialIcons-Regular.ttf") format('truetype'),
+		url("https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/MaterialIcons-Regular.woff2") format('woff2'),
+		url("https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/MaterialIcons-Regular.woff") format('woff')
+	
+	.material-icons
+	  font-family 'Material Icons'
+	  font-weight normal
+	  font-style normal
+	  font-size 20px
+	  display inline-block
+	  line-height 1
+	  margin 0
+	  text-transform none
+	  letter-spacing normal
+	  word-wrap normal
+	  white-space nowrap
+	  direction ltr
+	  -webkit-font-smoothing antialiased !* Support for all WebKit browsers. *!
+	  text-rendering optimizeLegibility !* Support for Safari and Chrome. *!
+	  -moz-osx-font-smoothing grayscale !* Support for Firefox. *!
+	  font-feature-settings 'liga'  !* Support for IE. *!
+	  
+	  */
   
   html
     font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -92,15 +93,22 @@
   *,
   *:before,
   *:after
-    box-sizing: border-box;
-    margin: 0;
+    box-sizing: border-box
+    margin: 0
   
   body
-    width: 100%;
-    height: 100%;
-    margin: 0;
+    width: 100%
+    height: 100%
+    margin: 0
+    background-color #e6e6e6
   
   button
     .mu-flat-button
       min-width 40vmin
+  
+  div.layout
+    height 100%
+  
+  div#__nuxt
+    height 100%
 </style>

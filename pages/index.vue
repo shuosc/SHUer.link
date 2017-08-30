@@ -31,7 +31,8 @@
           <mu-text-field hintText="请输入搜索内容" label="搜索" v-model="searchString" @keyup.native.enter="searchContent"
                          labelFloat fullWidth />
         </div>
-        <mu-raised-button class="search-button" label="搜索" icon=":iconfont icon-search" primary @click="searchContent" />
+        <mu-raised-button class="search-button" label="搜索" icon=":iconfont icon-search" primary
+                          @click="searchContent" />
       </div>
       <div class="pure-u-1-24 pure-u-md-1-5"></div>
     </div>
@@ -42,7 +43,6 @@
   export default {
     data: function () {
       return {
-        device: '',
         searchEngines: {
           Google: {
             desktop: 'https://g.shuosc.org/search?newwindow=1&hl=zh-CN&q=',
@@ -122,10 +122,6 @@
         searchString: ''
       }
     },
-    mounted: function () {
-      /* eslint-disable */
-      this.device = device.mobile()
-    },
     methods: {
       changeSearchEngine: function (val) {
         this.searchEngine = val
@@ -139,7 +135,7 @@
     computed: {
       url: function () {
         let queryString = this.searchEngines
-        let queryURL = (this.device) ? (queryString[this.searchEngine].mobile) : (queryString[this.searchEngine].desktop)
+        let queryURL = (this.$store.state.device) ? (queryString[this.searchEngine].mobile) : (queryString[this.searchEngine].desktop)
         return queryURL + this.searchString
       }
     }
