@@ -117,8 +117,8 @@
             mobile: 'https://stackoverflow.com/search?q='
           }
         },
-        searchEngine: 'Google',
-        icon: ':iconfont icon-Google',
+        searchEngine: 'Baidu',
+        icon: ':iconfont icon-Baidu',
         searchString: ''
       }
     },

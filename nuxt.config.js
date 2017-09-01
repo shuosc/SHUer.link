@@ -16,7 +16,7 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://at.alicdn.com/t/font_395504_v99hmdiyk7bhjjor.css' }
+      { rel: 'stylesheet', href: 'https://at.alicdn.com/t/font_395504_oboohz011f4aq0k9.css' }
     ],
     script: [
       { src: 'https://cdn.bootcss.com/device.js/0.2.7/device.min.js' }

@@ -4,7 +4,7 @@
     <p v-else-if="error.statusCode===500">服务器错误</p>
     <p v-else>应用程序错误</p>
     <br>
-    <p>请联系管理员排除故障</p>
+    <p>请<a href="mailto:adrianduan@shuhelper.cn">联系管理员</a>排除故障</p>
   </div>
 </template>
 
