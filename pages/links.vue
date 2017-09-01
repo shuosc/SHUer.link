@@ -1,6 +1,7 @@
 <template>
   <div class="links">
     <div class="container">
+      
       <mu-paper class="link-paper paper-1" :zDepth="2">
         <div class="link-header">上&nbsp;大</div>
         <mu-raised-button backgroundColor="#1F437C" @click="goWebsite(websites.SHU)">
@@ -26,6 +27,7 @@
           <p>乐乎论坛</p>
         </mu-raised-button>
       </mu-paper>
+      
       <mu-paper class="link-paper" :zDepth="2">
         <div class="link-header">学&nbsp;习</div>
         <mu-raised-button backgroundColor="#115FAD" @click="goWebsite(websites.CNKI)">
@@ -72,6 +74,7 @@
           <i class="iconfont icon-StackOverflow"></i>
         </mu-raised-button>
       </mu-paper>
+      
       <mu-paper class="link-paper" :zDepth="2">
         <div class="link-header">社&nbsp;交</div>
         <mu-raised-button backgroundColor="#41990C" @click="goWebsite(websites.Wechat)">
@@ -123,33 +126,6 @@
           <i class="iconfont icon-whatsapp"></i>
         </mu-raised-button>
       </mu-paper>
-      <mu-paper class="link-paper paper-4" :zDepth="2">
-        <div class="link-header">购&nbsp;物</div>
-        <mu-raised-button backgroundColor="#FF4018" @click="goWebsite(websites.Taobao)">
-          <p>淘&nbsp;宝&nbsp;</p>
-          <i class="iconfont icon-Taobao"></i>
-        </mu-raised-button>
-        <mu-raised-button backgroundColor="#E61C1A" @click="goWebsite(websites.JD)">
-          <p>京&nbsp;东&nbsp;</p>
-          <i class="iconfont icon-JD"></i>
-        </mu-raised-button>
-        <mu-raised-button backgroundColor="#FF9B00" @click="goWebsite(websites.amazon)">
-          <p>亚马逊&nbsp;</p>
-          <i class="iconfont icon-amazon"></i>
-        </mu-raised-button>
-        <mu-raised-button backgroundColor="#F94F54" @click="goWebsite(websites.dangdang)">
-          <p>当&nbsp;当&nbsp;</p>
-          <i class="iconfont icon-dangdang"></i>
-        </mu-raised-button>
-        <mu-raised-button backgroundColor="#E3007E" @click="goWebsite(websites.weipinhui)">
-          <p>唯品会&nbsp;</p>
-          <i class="iconfont icon-weipinhui"></i>
-        </mu-raised-button>
-        <mu-raised-button backgroundColor="#A08D67" @click="goWebsite(websites.wangyiyanxuan)">
-          <p>网易严选&nbsp;</p>
-          <i class="iconfont icon-wangyiyanxuan"></i>
-        </mu-raised-button>
-      </mu-paper>
       
       <mu-paper class="link-paper" :zDepth="2">
         <div class="link-header">工&nbsp;具</div>
@@ -198,6 +174,7 @@
           <i class="iconfont icon-QQmail"></i>
         </mu-raised-button>
       </mu-paper>
+      
       <mu-paper class="link-paper paper-6" :zDepth="2">
         <div class="link-header">娱&nbsp;乐</div>
         <mu-raised-button backgroundColor="#D43C33" @click="goWebsite(websites.NeteaseMusic)">
@@ -235,6 +212,34 @@
         <mu-raised-button backgroundColor="#F06000" @click="goWebsite(websites.mgTV)">
           <p>芒果TV&nbsp;</p>
           <i class="iconfont icon-mgtv"></i>
+        </mu-raised-button>
+      </mu-paper>
+      
+      <mu-paper class="link-paper paper-4" :zDepth="2">
+        <div class="link-header">购&nbsp;物</div>
+        <mu-raised-button backgroundColor="#FF4018" @click="goWebsite(websites.Taobao)">
+          <p>淘&nbsp;宝&nbsp;</p>
+          <i class="iconfont icon-Taobao"></i>
+        </mu-raised-button>
+        <mu-raised-button backgroundColor="#E61C1A" @click="goWebsite(websites.JD)">
+          <p>京&nbsp;东&nbsp;</p>
+          <i class="iconfont icon-JD"></i>
+        </mu-raised-button>
+        <mu-raised-button backgroundColor="#FF9B00" @click="goWebsite(websites.amazon)">
+          <p>亚马逊&nbsp;</p>
+          <i class="iconfont icon-amazon"></i>
+        </mu-raised-button>
+        <mu-raised-button backgroundColor="#F94F54" @click="goWebsite(websites.dangdang)">
+          <p>当&nbsp;当&nbsp;</p>
+          <i class="iconfont icon-dangdang"></i>
+        </mu-raised-button>
+        <mu-raised-button backgroundColor="#E3007E" @click="goWebsite(websites.weipinhui)">
+          <p>唯品会&nbsp;</p>
+          <i class="iconfont icon-weipinhui"></i>
+        </mu-raised-button>
+        <mu-raised-button backgroundColor="#A08D67" @click="goWebsite(websites.wangyiyanxuan)">
+          <p>网易严选&nbsp;</p>
+          <i class="iconfont icon-wangyiyanxuan"></i>
         </mu-raised-button>
       </mu-paper>
     </div>
@@ -513,13 +518,13 @@
     margin-right 1vmin
     text-transform none
     min-width 16vh
-    
+  
   .paper-4
   .paper-1
     .mu-raised-button
       margin-top 3vh
   
   .paper-6
-   .mu-raised-button
+    .mu-raised-button
       margin-top 1vh
 </style>

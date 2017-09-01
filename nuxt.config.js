@@ -1,7 +1,4 @@
 module.exports = {
-  /*
-   ** Headers of the page
-   */
   head: {
     title: 'SHUer.link',
     meta: [
@@ -22,13 +19,9 @@ module.exports = {
       { src: 'https://cdn.bootcss.com/device.js/0.2.7/device.min.js' }
     ]
   },
-  // css: ['muse-ui/dist/muse-ui.css', 'muse-ui/dist/theme-carbon.css'],
   plugins: [
     { src: '~plugins/muse-ui', ssr: true }
   ],
-  /*
-   ** Customize the progress-bar color
-   */
   loading: { color: '#FF5252' },
   /*
    ** Build configuration

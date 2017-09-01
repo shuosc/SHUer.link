@@ -27,7 +27,6 @@
             <mu-menu-item title="GitHub" rightIcon=":iconfont icon-GitHub" value="GitHub" />
             <mu-menu-item title="Stack Overflow" rightIcon=":iconfont icon-StackOverflow" value="StackOverflow" />
           </mu-icon-menu>
-          
           <mu-text-field hintText="请输入搜索内容" label="搜索" v-model="searchString" @keyup.native.enter="searchContent"
                          labelFloat fullWidth />
         </div>
@@ -117,8 +116,8 @@
             mobile: 'https://stackoverflow.com/search?q='
           }
         },
-        searchEngine: 'Baidu',
-        icon: ':iconfont icon-Baidu',
+        searchEngine: 'Google',
+        icon: ':iconfont icon-Google',
         searchString: ''
       }
     },
@@ -128,15 +127,15 @@
         this.icon = ':iconfont icon-' + val
       },
       searchContent: function () {
-        window.location.href = this.url
+        window.open(this.url)
         this.searchString = ''
       }
     },
     computed: {
       url: function () {
-        let queryString = this.searchEngines
-        let queryURL = (this.$store.state.device) ? (queryString[this.searchEngine].mobile) : (queryString[this.searchEngine].desktop)
-        return queryURL + this.searchString
+        let queryURL = (this.$store.state.device) ? (this.searchEngines[this.searchEngine].mobile) : (this.searchEngines[this.searchEngine].desktop)
+        let queryString = encodeURIComponent(this.searchString)
+        return queryURL + queryString
       }
     }
   }
