@@ -8,7 +8,7 @@
           <p>上大主页&nbsp;</p>
           <i class="iconfont icon-SHU"></i>
         </mu-raised-button>
-        <mu-raised-button backgroundColor="#35495E" @click="goWebsite(websites.SHUhelper)">
+        <mu-raised-button backgroundColor="#03A9F4" @click="goWebsite(websites.SHUhelper)">
           <p>SHUhelper</p>
         </mu-raised-button>
         <mu-raised-button backgroundColor="#48BEA1" @click="goWebsite(websites.SHUOSC)">
