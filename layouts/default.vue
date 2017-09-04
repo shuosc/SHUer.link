@@ -1,11 +1,8 @@
 <template>
   <div class="layout">
     <navbar></navbar>
-    <mu-drawer right :docked="false" :open="this.$store.state.sidebarState"
-               @close="toggleSidebar">
-      <mu-appbar title="设置" />
-      <sidebar></sidebar>
-    </mu-drawer>
+    <sidebar v-if="this.$store.state.loginState"></sidebar>
+    <login v-else></login>
     <nuxt />
   </div>
 </template>
@@ -13,11 +10,13 @@
 <script type="text/ecmascript-6">
   import sidebar from '~/components/sidebar.vue'
   import navbar from '~/components/navbar.vue'
+  import login from '~/components/login.vue'
   
   export default {
     components: {
       sidebar,
-      navbar
+      navbar,
+      login
     },
     mounted: function () {
       this.$store.commit('detectDevice')
@@ -32,14 +31,14 @@
 
 <style lang="stylus">
   html
-    font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-size: 16px;
-    word-spacing: 1px;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    box-sizing: border-box;
+    font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif
+    font-size: 16px
+    word-spacing: 1px
+    -ms-text-size-adjust: 100%
+    -webkit-text-size-adjust: 100%
+    -moz-osx-font-smoothing: grayscale
+    -webkit-font-smoothing: antialiased
+    box-sizing: border-box
     height 100%
   
   *,
@@ -59,4 +58,7 @@
   
   div#__nuxt
     height 100%
+  
+  .footer
+    text-align center
 </style>

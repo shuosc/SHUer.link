@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 /* eslint-disable */
-import light from '!raw-loader!../assets/themes/light-theme.css'
-import dark from '!raw-loader!../assets/themes/dark-theme.css'
+// import light from '!raw-loader!../assets/themes/light-theme.css'
+// import dark from '!raw-loader!../assets/themes/dark-theme.css'
 
 Vue.use(Vuex)
 
@@ -13,8 +13,11 @@ const store = () => new Vuex.Store({
     //   light,
     //   dark
     // },
+    cardID: '',
+    password: '',
     device: '',
-    sidebarState: false
+    sidebarState: false,
+    loginState: false
   },
   mutations: {
     // changeTheme (state, val) {

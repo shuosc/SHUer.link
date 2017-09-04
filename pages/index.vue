@@ -14,13 +14,10 @@
           <mu-text-field hintText="请输入搜索内容" label="搜索" v-model="searchString" @keyup.native.enter="searchContent"
                          labelFloat fullWidth />
         </div>
-        <mu-raised-button class="search-button" label="搜索" icon=":iconfont icon-search" primary
+        <mu-raised-button class="search-button" label="搜索" icon=":iconfont icon-search" secondary
                           @click="searchContent" />
       </div>
       <div class="pure-u-1-24 pure-u-md-1-5"></div>
-    </div>
-    <div class="footer">
-      ©2017 SHU Open Source Community
     </div>
   </div>
 </template>
@@ -202,8 +199,6 @@
   
   .search-button
     margin 10vmin
-  
-  .footer
-    margin-top 150px
+
 
 </style>
