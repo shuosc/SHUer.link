@@ -13,8 +13,16 @@ const store = () => new Vuex.Store({
     //   light,
     //   dark
     // },
-    cardID: '',
-    password: '',
+    user: {
+      cardID: '',
+      password: '',
+      name: '',
+      nickname: '',
+      tocken: '',
+      custom: {
+        theme: 'defaultTheme'
+      }
+    },
     device: '',
     sidebarState: false,
     loginState: false

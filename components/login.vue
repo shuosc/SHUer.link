@@ -3,15 +3,21 @@
     <mu-drawer right :docked="false" :open="this.$store.state.sidebarState"
                @close="toggleSidebar" :width="300">
       <mu-appbar title="登录" />
-      <div class="container">
+      <div class="center">
         <h3>登录</h3>
         <mu-avatar :size="80" />
-        <mu-text-field label="一卡通账号" @textOverflow="inputError" :errorText="inputErrorText" labelFloat
-                       icon=":iconfont icon-account" :maxLength="8" />
-        <mu-text-field label="密码" type="password" labelFloat icon=":iconfont icon-password" />
-        <mu-checkbox label="记住我" />
+      </div>
+      <mu-text-field label="一卡通账号" @textOverflow="inputError" :errorText="inputErrorText" labelFloat
+                     icon=":iconfont icon-account" :maxLength="8" type="number" />
+      <div id="password">
+        <mu-text-field label="密码" :type="[passwordVisible?'text':'password']" labelFloat
+                       icon=":iconfont icon-password" />
+        <mu-checkbox uncheckIcon=":iconfont icon-invisible" checkedIcon=":iconfont icon-visible"
+                     v-model="passwordVisible" />
+      </div>
+      <div class="center">
+        <mu-checkbox label="记住我" v-model="rememberMe" />
         <mu-raised-button label="登录" icon=":iconfont icon-login" secondary />
-        <br />
       </div>
     </mu-drawer>
   </div>
@@ -22,7 +28,9 @@
     name: 'login',
     data: function () {
       return {
-        inputErrorText: ''
+        inputErrorText: '',
+        rememberMe: false,
+        passwordVisible: false
       }
     },
     methods: {
@@ -37,7 +45,7 @@
 </script>
 
 <style lang="stylus" scoped>
-  .container
+  .center
     display flex
     flex-direction column
     flex-wrap wrap

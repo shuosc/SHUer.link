@@ -179,7 +179,7 @@
   }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
   .container
     text-align center
   
@@ -199,6 +199,5 @@
   
   .search-button
     margin 10vmin
-
 
 </style>
