@@ -2,7 +2,7 @@
 
 > Inspired by BYR.wiki
 
-使用Nuxtjs构建的校园导航网站。
+使用Nuxt.js构建的校园导航网站。
 
 # 开发
 
@@ -34,3 +34,4 @@
 
 * `purecss`
 * `muse-ui`
+* `Koa.js`
