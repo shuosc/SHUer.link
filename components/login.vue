@@ -10,7 +10,7 @@
       <mu-text-field label="一卡通账号" @textOverflow="inputError" :errorText="inputErrorText" labelFloat
                      icon=":iconfont icon-account" :maxLength="8" type="number" />
       <div id="password">
-        <mu-text-field label="密码" :type="[passwordVisible?'text':'password']" labelFloat
+        <mu-text-field label="密码" :type="passwordVisible?'text':'password'" labelFloat
                        icon=":iconfont icon-password" />
         <mu-checkbox uncheckIcon=":iconfont icon-invisible" checkedIcon=":iconfont icon-visible"
                      v-model="passwordVisible" />

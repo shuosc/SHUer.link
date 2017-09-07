@@ -12,7 +12,7 @@
                           :rightIcon="searchEngine.icon" :value="searchEngine.value" :key="searchEngine.value" />
           </mu-icon-menu>
           <mu-text-field hintText="请输入搜索内容" label="搜索" v-model="searchString" @keyup.native.enter="searchContent"
-                         labelFloat fullWidth />
+                         labelFloat fullWidth :required="true"/>
         </div>
         <mu-raised-button class="search-button" label="搜索" icon=":iconfont icon-search" secondary
                           @click="searchContent" />

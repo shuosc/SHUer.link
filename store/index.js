@@ -25,7 +25,7 @@ const store = () => new Vuex.Store({
     },
     device: '',
     sidebarState: false,
-    loginState: false
+    loginState: true
   },
   mutations: {
     // changeTheme (state, val) {
