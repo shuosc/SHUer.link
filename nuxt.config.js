@@ -20,7 +20,8 @@ module.exports = {
     ]
   },
   plugins: [
-    { src: '~plugins/muse-ui', ssr: true }
+    { src: '~plugins/muse-ui', ssr: true },
+    { src: '~plugins/googleAnalysis', ssr: false }
   ],
   loading: { color: '#FF5252' },
   /*

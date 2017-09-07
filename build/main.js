@@ -140,7 +140,7 @@ module.exports = {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }, { rel: 'stylesheet', href: 'https://at.alicdn.com/t/font_395504_kwe2uf0xj3euerk9.css' }],
     script: [{ src: 'https://cdn.bootcss.com/device.js/0.2.7/device.min.js' }]
   },
-  plugins: [{ src: '~plugins/muse-ui', ssr: true }],
+  plugins: [{ src: '~plugins/muse-ui', ssr: true }, { src: '~plugins/googleAnalysis', ssr: false }],
   loading: { color: '#FF5252' },
   /*
    ** Build configuration
