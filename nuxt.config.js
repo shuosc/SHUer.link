@@ -1,3 +1,10 @@
+// const path = require('path')
+// const museUiThemePath = path.join(
+//   __dirname,
+//   'node_modules',
+//   'muse-ui',
+//   'src/styles/themes/variables/default.less'
+// )
 module.exports = {
   head: {
     title: 'SHUer.link',
@@ -23,16 +30,40 @@ module.exports = {
     { src: '~plugins/muse-ui', ssr: true },
     { src: '~plugins/googleAnalysis', ssr: false }
   ],
-  loading: { color: '#FF5252' },
-  /*
-   ** Build configuration
-   */
+  loading: {
+    color: 'rgb(104,232,104)',
+    height: '3px',
+    failedColor: '#FF5252'
+  },
+  generate: {
+    dir: 'dist',
+    minify: {
+      collapseBooleanAttributes: true,
+      collapseWhitespace: true,
+      decodeEntities: true,
+      minifyCSS: true,
+      minifyJS: true,
+      processConditionalComments: true,
+      removeAttributeQuotes: false,
+      removeComments: true,
+      removeEmptyAttributes: false,
+      removeOptionalTags: false,
+      removeRedundantAttributes: false,
+      removeScriptTypeAttributes: false,
+      removeStyleLinkTypeAttributes: false,
+      removeTagWhitespace: false,
+      sortAttributes: true,
+      sortClassName: true,
+      trimCustomFragments: true,
+      useShortDoctype: true
+    }
+  },
   build: {
     vendor: ['axios', 'muse-ui'],
     /*
      ** Run ESLINT on save
      */
-    extend (config, ctx) {
+    extend: (config, ctx) => {
       if (ctx.dev && ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',
@@ -42,5 +73,35 @@ module.exports = {
         })
       }
     }
+    // extend: (config, ctx) => {
+    //   config.module.rules.push({
+    //     loaders: [
+    //       {
+    //         test: /muse-ui.src.*?js$/,
+    //         loader: 'babel-loader'
+    //       },
+    //       {
+    //         test: /\.vue$/,
+    //         loader: 'vue-loader',
+    //         options: {
+    //           loaders: {
+    //             less: [
+    //               'vue-style-loader',
+    //               'css-loader',
+    //               {
+    //                 loader: 'less-loader',
+    //                 options: {
+    //                   globalVars: {
+    //                     museUiTheme: `'${museUiThemePath}'`
+    //                   }
+    //                 }
+    //               }
+    //             ]
+    //           }
+    //         }
+    //       }
+    //     ]
+    //   })
+    // }
   }
 }

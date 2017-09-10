@@ -1,18 +1,17 @@
 import Koa from 'koa'
 import { Nuxt, Builder } from 'nuxt'
+import proxy from 'koa-proxy'
 
 const app = new Koa()
 const host = process.env.HOST || '0.0.0.0'
 const port = process.env.PORT || 3000
-
-// Import and Set Nuxt.js options
+// 导入Nuxt.js设置
 let config = require('../nuxt.config.js')
 config.dev = !(app.env === 'production')
 
-// Instantiate nuxt.js
+// 实例化 nuxt.js
 const nuxt = new Nuxt(config)
-
-// Build in development
+// 开发模式设置
 if (config.dev) {
   const builder = new Builder(nuxt)
   builder.build().catch(e => {
@@ -21,17 +20,23 @@ if (config.dev) {
   })
 }
 
-app.use(ctx => {
-  ctx.status = 200 // koa defaults to 404 when it sees that status is unset
-  return new Promise((resolve, reject) => {
-    ctx.res.on('close', resolve)
-    ctx.res.on('finish', resolve)
-    nuxt.render(ctx.req, ctx.res, promise => {
-      // nuxt.render passes a rejected promise into callback on error.
-      promise.then(resolve).catch(reject)
+app.use(proxy({
+  host: 'https://www.shuhelper.cn',
+  match: /^\/api\//
+}))
+
+app.use(
+  ctx => {
+    ctx.status = 200 // koa 的默认状态码为404
+    return new Promise((resolve, reject) => {
+      ctx.res.on('close', resolve)
+      ctx.res.on('finish', resolve)
+      nuxt.render(ctx.req, ctx.res, promise => {
+        promise.then(resolve).catch(reject)
+      })
     })
-  })
-})
+  }
+)
 
 app.listen(port, host)
-console.log('Server listening on ' + host + ':' + port) // eslint-disable-line no-console
+console.log('Server listening on ' + host + ':' + port)

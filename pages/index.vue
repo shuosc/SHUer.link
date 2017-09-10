@@ -52,8 +52,8 @@
             title: '维基百科',
             value: 'Wikipedia',
             icon: ':iconfont icon-Wikipedia',
-            desktop: 'https://zh.m.wikipedia.org/w/index.php?search=',
-            mobile: 'https://zh.m.wikipedia.org/w/index.php?search='
+            desktop: 'https://en.m.wikipedia.org/w/index.php?search=',
+            mobile: 'https://en.m.wikipedia.org/w/index.php?search='
           },
           CNKI: {
             title: '知网',

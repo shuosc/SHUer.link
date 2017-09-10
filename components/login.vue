@@ -8,27 +8,31 @@
         <mu-avatar :size="80" />
       </div>
       <mu-text-field label="一卡通账号" @textOverflow="inputError" :errorText="inputErrorText" labelFloat
-                     icon=":iconfont icon-account" :maxLength="8" type="number" />
+                     icon=":iconfont icon-account" :maxLength="8" v-model="cardID" type="string" />
       <div id="password">
-        <mu-text-field label="密码" :type="passwordVisible?'text':'password'" labelFloat
+        <mu-text-field label="密码" :type="passwordVisible?'text':'password'" labelFloat v-model="password"
                        icon=":iconfont icon-password" />
         <mu-checkbox uncheckIcon=":iconfont icon-invisible" checkedIcon=":iconfont icon-visible"
                      v-model="passwordVisible" />
       </div>
       <div class="center">
         <mu-checkbox label="记住我" v-model="rememberMe" />
-        <mu-raised-button label="登录" icon=":iconfont icon-login" secondary />
+        <mu-raised-button label="登录" icon=":iconfont icon-login" secondary @click="login"/>
       </div>
     </mu-drawer>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
+  import axios from 'axios'
+  
   export default {
     name: 'login',
     data: function () {
       return {
         inputErrorText: '',
+        cardID: '',
+        password: '',
         rememberMe: false,
         passwordVisible: false
       }
@@ -39,6 +43,15 @@
       },
       inputError: function (isOverflow) {
         this.inputErrorText = isOverflow ? '请输入正确的一卡通账号' : ''
+      },
+      login: function () {
+        axios.post('/api/v1/users/login/', {
+          card_id: this.cardID,
+          password: this.password
+        })
+          .then((response) => {
+            console.loh(response)
+          })
       }
     }
   }
