@@ -15,9 +15,6 @@
 `npm run dev`
 启动测试服务器后可通过`localhost:3000`访问
 
-## 静态化
-
-`npm run generate`
 
 # 完成度
 

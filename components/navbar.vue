@@ -1,9 +1,10 @@
 <template>
   <div class="navbar">
     <nav>
-      <mu-appbar title="SHUer.link">
-        <mu-flat-button color="white" label="主  页" slot="right" to="/" />
+      <mu-appbar>
+        <mu-flat-button color="white" label="主页" slot="right" to="/" />
         <mu-flat-button color="white" label="常用导航" slot="right" to="links" />
+        <mu-flat-button color="white" label="关于" slot="right" to="about" />
         <mu-icon-button icon=":iconfont icon-setting" slot="right" @click="toggleSidebar" />
       </mu-appbar>
     </nav>

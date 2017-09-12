@@ -1,7 +1,7 @@
 <template>
   <div class="links">
     <div class="container">
-      
+
       <mu-paper class="link-paper paper-1" :zDepth="2">
         <div class="link-header">上&nbsp;大</div>
         <mu-raised-button backgroundColor="#1F437C" @click="goWebsite(websites.SHU)">
@@ -27,7 +27,7 @@
           <p>乐乎论坛</p>
         </mu-raised-button>
       </mu-paper>
-      
+
       <mu-paper class="link-paper" :zDepth="2">
         <div class="link-header">学&nbsp;习</div>
         <mu-raised-button backgroundColor="#115FAD" @click="goWebsite(websites.CNKI)">
@@ -74,7 +74,7 @@
           <i class="iconfont icon-StackOverflow"></i>
         </mu-raised-button>
       </mu-paper>
-      
+
       <mu-paper class="link-paper" :zDepth="2">
         <div class="link-header">社&nbsp;交</div>
         <mu-raised-button backgroundColor="#41990C" @click="goWebsite(websites.Wechat)">
@@ -126,7 +126,7 @@
           <i class="iconfont icon-whatsapp"></i>
         </mu-raised-button>
       </mu-paper>
-      
+
       <mu-paper class="link-paper" :zDepth="2">
         <div class="link-header">工&nbsp;具</div>
         <mu-raised-button backgroundColor="#BA2636" @click="goWebsite(websites.railway)">
@@ -174,7 +174,7 @@
           <i class="iconfont icon-QQmail"></i>
         </mu-raised-button>
       </mu-paper>
-      
+
       <mu-paper class="link-paper paper-6" :zDepth="2">
         <div class="link-header">娱&nbsp;乐</div>
         <mu-raised-button backgroundColor="#D43C33" @click="goWebsite(websites.NeteaseMusic)">
@@ -214,7 +214,7 @@
           <i class="iconfont icon-mgtv"></i>
         </mu-raised-button>
       </mu-paper>
-      
+
       <mu-paper class="link-paper paper-4" :zDepth="2">
         <div class="link-header">购&nbsp;物</div>
         <mu-raised-button backgroundColor="#FF4018" @click="goWebsite(websites.Taobao)">
@@ -254,7 +254,7 @@
         websites: {
           SHU: {
             desktop: 'http://www.shu.edu.cn/',
-            mobile: 'http://www.shu.edu.cn/Default.aspx?tabid=10470'
+            mobile: 'http://www.shu.edu.cn/'
           },
           SHUOSC: {
             desktop: 'https://osc.shu.edu.cn/',
@@ -495,7 +495,7 @@
     align-items center
     flex-wrap wrap
     height 100%
-  
+
   .link-paper
     padding-top 2vmin
     padding-bottom 1vmin
@@ -505,25 +505,25 @@
     min-height 34vh
     text-align center
     background-color rgba(238, 238, 238, 0.5)
-  
+
   .link-header
     margin 0
     padding 2vh
     font-size 1.5rem
     display block
-  
+
   .mu-raised-button
     margin-bottom 2vmin
     margin-left 1vmin
     margin-right 1vmin
     text-transform none
     min-width 16vh
-  
+
   .paper-4
   .paper-1
     .mu-raised-button
       margin-top 3vh
-  
+
   .paper-6
     .mu-raised-button
       margin-top 1vh

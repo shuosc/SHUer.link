@@ -5,7 +5,7 @@
       <mu-appbar title="登录" />
       <div class="center">
         <h3>登录</h3>
-        <mu-avatar :size="80" />
+        <mu-avatar :size="80" src="avatar.png"/>
       </div>
       <mu-text-field label="一卡通账号" @textOverflow="inputError" :errorText="inputErrorText" labelFloat
                      icon=":iconfont icon-account" :maxLength="8" v-model="cardID" type="string" />
@@ -17,7 +17,7 @@
       </div>
       <div class="center">
         <mu-checkbox label="记住我" v-model="rememberMe" />
-        <mu-raised-button label="登录" icon=":iconfont icon-login" secondary @click="login"/>
+        <mu-raised-button label="登录" icon=":iconfont icon-login" secondary @click="login" />
       </div>
     </mu-drawer>
   </div>
@@ -25,7 +25,7 @@
 
 <script type="text/ecmascript-6">
   import axios from 'axios'
-  
+
   export default {
     name: 'login',
     data: function () {
@@ -34,7 +34,9 @@
         cardID: '',
         password: '',
         rememberMe: false,
-        passwordVisible: false
+        passwordVisible: false,
+        errorVisible: true,
+        errorText: '密码错误'
       }
     },
     methods: {
@@ -50,7 +52,7 @@
           password: this.password
         })
           .then((response) => {
-            console.loh(response)
+
           })
       }
     }
@@ -65,10 +67,10 @@
     align-items center
     justify-content flex-start
     text-align center
-  
+
   h3
     margin 5vh
-  
+
   .mu-raised-button
     margin 5vh
 </style>
