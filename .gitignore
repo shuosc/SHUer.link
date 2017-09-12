@@ -18,3 +18,5 @@ dist
 # OS file
 .DS_Store
 desktop.ini
+
+yarn.lock
