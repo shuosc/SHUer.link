@@ -5,9 +5,9 @@
       <div class="pure-u-22-24 pure-u-md-3-5">
         <mu-paper :zDepth="2" class="about-paper">
           <h1>作者</h1>
-          <mu-avatar src="adrian.png" :size="60" />
+          <mu-avatar src="avatar/adrian.png" :size="60" />
           <a href="https://github.com/AdrianDuan"><p>Adrian</p></a>
-          <mu-avatar src="cosformula.png" :size="60" />
+          <mu-avatar src="avatar/cosformula.png" :size="60" />
           <a href="https://github.com/cosformula"><p>cosformula</p></a>
           <h1>GitHub</h1>
           <a href="https://github.com/shuopensourcecommunity/SHUer.link"><i class="iconfont icon-GitHub"></i></a>
@@ -33,6 +33,7 @@
 <style lang="stylus" scoped>
   .container
     text-align center
+    padding-top 15vmin
 
   .about-paper
     margin-top 5vmin
@@ -47,7 +48,7 @@
     background-color rgba(255, 255, 255, 0.5)
 
   .mu-avatar
-    margin-top 2vmin
+    margin-top 1vmin
 
   a
     font-size 1.2rem
@@ -57,9 +58,16 @@
     font-size 3rem
 
   footer
+    padding-top 3vmin
+    padding-bottom 2vmin
     a
       font-size 0.8rem
+      color #fff
 
   p
     font-size 1.2rem
+
+  h1
+    padding 0
+    margin 1vmin
 </style>

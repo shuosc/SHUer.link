@@ -25,6 +25,10 @@ app.use(proxy({
   match: /^\/api\//
 }))
 
+// app.use(proxy.when({
+//   url: '/api'
+// }))
+
 app.use(
   ctx => {
     ctx.status = 200 // koa 的默认状态码为404

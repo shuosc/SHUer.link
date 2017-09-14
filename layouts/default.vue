@@ -11,7 +11,7 @@
   import sidebar from '~/components/sidebar.vue'
   import navbar from '~/components/navbar.vue'
   import login from '~/components/login.vue'
-  
+
   export default {
     components: {
       sidebar,
@@ -31,34 +31,44 @@
 
 <style lang="stylus">
   html
-    font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif
-    font-size: 16px
-    word-spacing: 1px
-    -ms-text-size-adjust: 100%
-    -webkit-text-size-adjust: 100%
-    -moz-osx-font-smoothing: grayscale
-    -webkit-font-smoothing: antialiased
-    box-sizing: border-box
+    font-family "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif
+    font-size 16px
+    word-spacing 1px
+    -ms-text-size-adjust 100%
+    -webkit-text-size-adjust 100%
+    -moz-osx-font-smoothing grayscale
+    -webkit-font-smoothing antialiased
+    box-sizing border-box
     height 100%
-  
+
   *,
   *:before,
   *:after
-    box-sizing: border-box
-    margin: 0
-  
+    box-sizing border-box
+    margin 0
+
   body
-    width: 100%
-    height: 100%
-    margin: 0
-    background-color #e6e6e6
-  
+    width 100%
+    height 100%
+    margin 0
+    background-image url("~assets/background-image/bg5.jpg")
+    background-repeat no-repeat
+    background-size cover
+    background-position bottom
+    background-color #eeeeee
+    /*background-color #e6e6e6*/
+
   div.layout
     height 100%
-  
+
   div#__nuxt
     height 100%
-  
-  .footer
-    text-align center
+
+  .navbar
+    width 100%
+    position fixed
+    padding-top 0
+    z-index 2
+
+
 </style>

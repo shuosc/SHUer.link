@@ -495,6 +495,7 @@
     align-items center
     flex-wrap wrap
     height 100%
+    padding-top 15vmin
 
   .link-paper
     padding-top 2vmin

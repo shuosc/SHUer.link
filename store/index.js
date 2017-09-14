@@ -20,7 +20,7 @@ const store = () => new Vuex.Store({
     },
     device: '',
     sidebarState: false,
-    loginState: true,
+    loginState: false,
     searchEngines: {
       Google: {
         title: '谷歌',
@@ -165,6 +165,12 @@ const store = () => new Vuex.Store({
     changeSearchEngine (state, val) {
       state.searchEngine = val
       state.icon = ':iconfont icon-' + val
+    },
+    login (state) {
+      state.loginState = true
+    },
+    logout (state) {
+      state.loginState = false
     }
   }
 })

@@ -5,12 +5,12 @@
       <mu-appbar title="登录" />
       <div class="center">
         <h3>登录</h3>
-        <mu-avatar :size="80" src="avatar.png"/>
+        <mu-avatar :size="80" />
       </div>
       <mu-text-field label="一卡通账号" @textOverflow="inputError" :errorText="inputErrorText" labelFloat
-                     icon=":iconfont icon-account" :maxLength="8" v-model="cardID" type="string" />
+                     icon=":iconfont icon-account" :maxLength="8" v-model="student.card_id" type="string" />
       <div id="password">
-        <mu-text-field label="密码" :type="passwordVisible?'text':'password'" labelFloat v-model="password"
+        <mu-text-field label="密码" :type="passwordVisible?'text':'password'" labelFloat v-model="student.password"
                        icon=":iconfont icon-password" />
         <mu-checkbox uncheckIcon=":iconfont icon-invisible" checkedIcon=":iconfont icon-visible"
                      v-model="passwordVisible" />
@@ -30,9 +30,11 @@
     name: 'login',
     data: function () {
       return {
+        student: {
+          card_id: '',
+          password: ''
+        },
         inputErrorText: '',
-        cardID: '',
-        password: '',
         rememberMe: false,
         passwordVisible: false,
         errorVisible: true,
@@ -47,12 +49,17 @@
         this.inputErrorText = isOverflow ? '请输入正确的一卡通账号' : ''
       },
       login: function () {
-        axios.post('/api/v1/users/login/', {
-          card_id: this.cardID,
-          password: this.password
-        })
+        axios.post('/api/v1/users/login/', this.student)
           .then((response) => {
-
+            if (response.request.readyState === 4 && response.request.status === 200) {
+              if (this.rememberMe === true) {
+                console.log(response)
+              }
+              this.$store.commit('login')
+            }
+          })
+          .catch(() => {
+            this.inputErrorText = '一卡通账号或密码错误'
           })
       }
     }

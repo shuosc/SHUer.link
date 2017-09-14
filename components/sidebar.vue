@@ -3,6 +3,10 @@
     <mu-drawer right :docked="false" :open="this.$store.state.sidebarState"
                @close="toggleSidebar">
       <mu-appbar title="设置" />
+        <div class="center">
+          <h3>{{ name }}</h3>
+          <mu-avatar :size="80" src="adrian.png" />
+        </div>
         <mu-list>
           <mu-list-item title="壁纸设置" toggleNested>
             <mu-list-item title="自动切换壁纸" slot="nested">
@@ -31,7 +35,8 @@
     data: function () {
       return {
         autoChangeWallpaper: true,
-        changeTime: ''
+        changeTime: '',
+        name: 'Adrian'
       }
     },
     methods: {
@@ -49,4 +54,16 @@
     flex-wrap wrap
     align-items center
     justify-content flex-start
+
+  .center
+    padding-top 5vmin
+    padding-bottom 2vmin
+    display flex
+    flex-direction column
+    flex-wrap wrap
+    align-items center
+    justify-content flex-start
+    text-align center
+    h3
+      padding-bottom 2vmin
 </style>
