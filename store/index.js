@@ -11,12 +11,10 @@ const store = () => new Vuex.Store({
     //   dark
     // },
     user: {
-      cardID: '',
-      password: '',
       name: '',
       nickname: '',
-      tocken: '',
-      custom: {}
+      token: '',
+      avatar: 'avatar/adrian.png'
     },
     device: '',
     sidebarState: false,
@@ -150,12 +148,13 @@ const store = () => new Vuex.Store({
       }
     },
     searchEngine: 'Google',
-    icon: ':iconfont icon-Google'
+    icon: ':iconfont icon-Google',
+    settings: {
+      autoChangeWallpaper: true,
+      changeTime: ''
+    }
   },
   mutations: {
-    // changeTheme (state, val) {
-    //   state.theme = val
-    // },
     detectDevice (state) {
       state.device = device.mobile()
     },
@@ -166,8 +165,12 @@ const store = () => new Vuex.Store({
       state.searchEngine = val
       state.icon = ':iconfont icon-' + val
     },
-    login (state) {
+    login (state, val) {
       state.loginState = true
+      state.user.name = val.name
+      state.user.nickname = val.nickname
+      state.user.token = val.token
+      state.user.avatar = val.avatar
     },
     logout (state) {
       state.loginState = false

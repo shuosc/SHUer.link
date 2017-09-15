@@ -20,7 +20,9 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://at.alicdn.com/t/font_395504_kwe2uf0xj3euerk9.css' }
+      { rel: 'stylesheet', href: 'https://at.alicdn.com/t/font_395504_kwe2uf0xj3euerk9.css' },
+      { rel: 'stylesheet', href: 'https://cdn.bootcss.com/pure/1.0.0/grids-min.css' },
+      { rel: 'stylesheet', href: 'https://cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css' }
     ],
     script: [
       { src: 'https://cdn.bootcss.com/device.js/0.2.7/device.min.js' }
@@ -59,7 +61,7 @@ module.exports = {
     }
   },
   build: {
-    vendor: ['axios', 'muse-ui'],
+    vendor: [ 'axios', 'muse-ui' ],
     /*
      ** Run ESLINT on save
      */

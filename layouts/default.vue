@@ -55,8 +55,8 @@
     background-repeat no-repeat
     background-size cover
     background-position bottom
-    background-color #eeeeee
-    /*background-color #e6e6e6*/
+    color #fff
+
 
   div.layout
     height 100%
@@ -70,5 +70,6 @@
     padding-top 0
     z-index 2
 
-
+  input.mu-text-field-input.input-text
+    color: #fff !important
 </style>

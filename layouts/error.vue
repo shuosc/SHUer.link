@@ -1,16 +1,21 @@
 <template>
   <div class="error">
-    <p v-if="error.statusCode === 404">页面不存在</p>
-    <p v-else-if="error.statusCode===500">服务器错误</p>
+    <div v-if="error.statusCode === 404">
+      <p>页面不存在</p>
+      <p>404 - Not Found</p>
+    </div>
+    <div v-else-if="error.statusCode===500">
+      <p>服务器错误</p>
+      <p>请<a href="mailto:adrianduan@shuhelper.cn">联系管理员</a>排除故障</p></div>
     <p v-else>应用程序错误</p>
     <br>
-    <p>请<a href="mailto:adrianduan@shuhelper.cn">联系管理员</a>排除故障</p>
+
   </div>
 </template>
 
 <script>
   export default {
-    props: ['error'],
+    props: [ 'error' ],
     layout: 'default'
   }
 </script>
@@ -22,6 +27,12 @@
     align-items center
     justify-content center
     font-size 5vmin
-    margin-top 30vmin
-    
+    padding-top 30vmin
+    text-align center
+
+  div.layout
+    height 100%
+
+  div#__nuxt
+    height 100%
 </style>

@@ -36,9 +36,7 @@
         },
         inputErrorText: '',
         rememberMe: false,
-        passwordVisible: false,
-        errorVisible: true,
-        errorText: '密码错误'
+        passwordVisible: false
       }
     },
     methods: {
@@ -49,14 +47,18 @@
         this.inputErrorText = isOverflow ? '请输入正确的一卡通账号' : ''
       },
       login: function () {
+        if (this.student.card_id === '' || this.student.password === '') {
+          this.inputErrorText = '请填写完整的登陆信息'
+          return
+        }
+        if (!this.student.card_id.match(/^\d{8}$/)) {
+          this.inputErrorText = '请输入正确的一卡通账号'
+          return
+        }
         axios.post('/api/v1/users/login/', this.student)
           .then((response) => {
-            if (response.request.readyState === 4 && response.request.status === 200) {
-              if (this.rememberMe === true) {
-                console.log(response)
-              }
-              this.$store.commit('login')
-            }
+            console.log(response)
+            this.$store.commit('login', response.data)
           })
           .catch(() => {
             this.inputErrorText = '一卡通账号或密码错误'

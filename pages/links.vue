@@ -496,6 +496,7 @@
     flex-wrap wrap
     height 100%
     padding-top 15vmin
+    padding-bottom 5vmin
 
   .link-paper
     padding-top 2vmin

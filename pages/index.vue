@@ -8,13 +8,17 @@
         <div class="search">
           <mu-icon :value="icon" @click.native="onIconClick" style="cursor:pointer;color: #ffffff" />
           <mu-icon-menu icon=":iconfont icon-more" :autoWidth="true" :maxHeight="300" @change="changeSearchEngine"
-                        ref="menu" style="color: #ffffff">
-            <mu-menu-item v-for="searchEngine in searchEngines" :title="searchEngine.title"
-                          :rightIcon="searchEngine.icon" :value="searchEngine.value" :key="searchEngine.value" />
+                        ref="menu" style="color: #ffffff" @mouseenter.native="onIconClick">
+            <div @mouseleave="onMouseOut" id="list">
+              <mu-menu-item v-for="searchEngine in searchEngines" :title="searchEngine.title"
+                            :rightIcon="searchEngine.icon" :value="searchEngine.value"
+                            :key="searchEngine.value" />
+            </div>
+
           </mu-icon-menu>
           <mu-text-field id="input" hintText="请输入搜索内容" label="搜索" v-model="searchString"
                          @keyup.native.enter="searchContent"
-                         labelFloat fullWidth :required="true" type="search" />
+                         labelFloat fullWidth :required="true" type="search" :inputClass="inputText" />
         </div>
         <mu-raised-button class="search-button" label="搜索" icon=":iconfont icon-search" secondary
                           @click="searchContent" />
@@ -28,7 +32,8 @@
 export default {
   data: function () {
     return {
-      searchString: ''
+      searchString: '',
+      inputText: 'input-text'
     }
   },
   methods: {
@@ -43,6 +48,9 @@ export default {
     },
     onIconClick: function () {
       this.$refs.menu.handleOpen()
+    },
+    onMouseOut: function () {
+      this.$refs.menu.handleClose()
     }
   },
   computed: {
@@ -67,7 +75,7 @@ export default {
 <style lang="stylus" scoped>
   .container
     text-align center
-    padding-top 15vmin
+    padding-top 150px
 
   .search
     display flex
@@ -85,6 +93,5 @@ export default {
 
   .search-button
     margin 10vmin
-
 
 </style>

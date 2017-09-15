@@ -5,22 +5,25 @@
       <mu-appbar title="设置" />
         <div class="center">
           <h3>{{ name }}</h3>
-          <mu-avatar :size="80" src="adrian.png" />
+          <mu-avatar :size="80" :src="avatar" />
         </div>
         <mu-list>
-          <mu-list-item title="壁纸设置" toggleNested>
+          <mu-list-item title="壁纸设置" toggleNested :open="false">
             <mu-list-item title="自动切换壁纸" slot="nested">
-              <mu-switch v-model="autoChangeWallpaper" slot="right" />
+              <mu-switch v-model="settings.autoChangeWallpaper" slot="right" />
             </mu-list-item>
-            <mu-list-item slot="nested" title="切换壁纸间隔" toggleNested>
+            <mu-list-item slot="nested" title="切换壁纸间隔" toggleNested :open="false">
               <mu-list-item title="每天" slot="nested">
-                  <mu-radio name="group" slot="right" :disabled="!autoChangeWallpaper" />
+                  <mu-radio nativeValue="everyDay" name="group" slot="right" :disabled="!settings.autoChangeWallpaper"
+                            v-model="settings.changeTime" />
               </mu-list-item>
               <mu-list-item title="每小时" slot="nested">
-                  <mu-radio name="group" slot="right" :disabled="!autoChangeWallpaper" />
+                  <mu-radio nativeValue="everyHour" name="group" slot="right" :disabled="!settings.autoChangeWallpaper"
+                            v-model="settings.changeTime" />
               </mu-list-item>
               <mu-list-item title="每分钟" slot="nested">
-                  <mu-radio name="group" slot="right" :disabled="!autoChangeWallpaper" />
+                  <mu-radio nativeValue="everyMinute" name="group" slot="right"
+                            :disabled="!settings.autoChangeWallpaper" v-model="settings.changeTime" />
               </mu-list-item>
             </mu-list-item>
           </mu-list-item>
@@ -34,14 +37,23 @@
     name: 'sidebar',
     data: function () {
       return {
-        autoChangeWallpaper: true,
-        changeTime: '',
-        name: 'Adrian'
+        settings: {
+          autoChangeWallpaper: false,
+          changeTime: 'everyDay'
+        }
       }
     },
     methods: {
       toggleSidebar: function () {
         this.$store.commit('changeSidebar')
+      }
+    },
+    computed: {
+      name: function () {
+        return this.$store.state.user.name
+      },
+      avatar: function () {
+        return 'https://static.shuhelper.cn/' + this.$store.state.user.avatar
       }
     }
   }
