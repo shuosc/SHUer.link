@@ -25,6 +25,11 @@ app.use(proxy({
   match: /^\/api\//
 }))
 
+app.use(proxy({
+  host: 'https://api.bing.com',
+  match: /^\/qsonhs/
+}))
+
 app.use(
   ctx => {
     ctx.status = 200 // koa 的默认状态码为404
