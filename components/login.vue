@@ -39,6 +39,20 @@
         passwordVisible: false
       }
     },
+    mounted: function () {
+      if (localStorage.card_id && localStorage.password) {
+        this.student.card_id = localStorage.card_id
+        this.student.password = localStorage.password
+        axios.post('/api/v1/users/login/', this.student)
+          .then((response) => {
+            console.log(response)
+            this.$store.commit('login', response.data)
+          })
+          .catch(() => {
+            this.$store.commit('logout')
+          })
+      }
+    },
     methods: {
       toggleSidebar: function () {
         this.$store.commit('changeSidebar')
@@ -57,8 +71,11 @@
         }
         axios.post('/api/v1/users/login/', this.student)
           .then((response) => {
-            console.log(response)
             this.$store.commit('login', response.data)
+            if (this.rememberMe === true) {
+              localStorage.card_id = this.student.card_id
+              localStorage.password = this.student.password
+            }
           })
           .catch(() => {
             this.inputErrorText = '一卡通账号或密码错误'

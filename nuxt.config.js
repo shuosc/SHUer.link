@@ -1,10 +1,3 @@
-// const path = require('path')
-// const museUiThemePath = path.join(
-//   __dirname,
-//   'node_modules',
-//   'muse-ui',
-//   'src/styles/themes/variables/default.less'
-// )
 module.exports = {
   head: {
     title: 'SHUer.link',
@@ -20,9 +13,7 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://at.alicdn.com/t/font_395504_kwe2uf0xj3euerk9.css' },
-      { rel: 'stylesheet', href: 'https://cdn.bootcss.com/pure/1.0.0/grids-min.css' },
-      { rel: 'stylesheet', href: 'https://cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css' }
+      { rel: 'stylesheet', href: 'https://at.alicdn.com/t/font_395504_6rjoalrk4y8hbyb9.css' }
     ],
     script: [
       { src: 'https://cdn.bootcss.com/device.js/0.2.7/device.min.js' }
@@ -75,35 +66,5 @@ module.exports = {
         })
       }
     }
-    // extend: (config, ctx) => {
-    //   config.module.rules.push({
-    //     loaders: [
-    //       {
-    //         test: /muse-ui.src.*?js$/,
-    //         loader: 'babel-loader'
-    //       },
-    //       {
-    //         test: /\.vue$/,
-    //         loader: 'vue-loader',
-    //         options: {
-    //           loaders: {
-    //             less: [
-    //               'vue-style-loader',
-    //               'css-loader',
-    //               {
-    //                 loader: 'less-loader',
-    //                 options: {
-    //                   globalVars: {
-    //                     museUiTheme: `'${museUiThemePath}'`
-    //                   }
-    //                 }
-    //               }
-    //             ]
-    //           }
-    //         }
-    //       }
-    //     ]
-    //   })
-    // }
   }
 }

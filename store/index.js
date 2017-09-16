@@ -1,20 +1,13 @@
 import Vuex from 'vuex'
 /* eslint-disable */
-// import light from '!raw-loader!../assets/themes/light-theme.css'
-// import dark from '!raw-loader!../assets/themes/dark-theme.css'
 
 const store = () => new Vuex.Store({
   state: {
-    // theme: 'light',
-    // themes: {
-    //   light,
-    //   dark
-    // },
     user: {
       name: '',
       nickname: '',
       token: '',
-      avatar: 'avatar/adrian.png'
+      avatar: ''
     },
     device: '',
     sidebarState: false,
@@ -47,6 +40,13 @@ const store = () => new Vuex.Store({
         icon: ':iconfont icon-Wikipedia',
         desktop: 'https://en.m.wikipedia.org/w/index.php?search=',
         mobile: 'https://en.m.wikipedia.org/w/index.php?search='
+      },
+      Cloud: {
+        title: '网盘',
+        value: 'Cloud',
+        icon: ':iconfont icon-Cloud',
+        desktop: 'https://www.panc.cc/s/',
+        mobile: 'https://www.panc.cc/m/s/?s='
       },
       CNKI: {
         title: '知网',
@@ -97,13 +97,6 @@ const store = () => new Vuex.Store({
         desktop: 'http://weixin.sogou.com/weixin?type=2&query=',
         mobile: 'http://weixin.sogou.com/weixinwap?type=2&query='
       },
-      Cloud: {
-        title: '网盘',
-        value: 'Cloud',
-        icon: ':iconfont icon-Cloud',
-        desktop: 'http://pansou.com/?q=',
-        mobile: 'http://m.pansou.com/?q='
-      },
       Taobao: {
         title: '淘宝',
         value: 'Taobao',
@@ -145,6 +138,13 @@ const store = () => new Vuex.Store({
         icon: ':iconfont icon-StackOverflow',
         desktop: 'https://stackoverflow.com/search?q=',
         mobile: 'https://stackoverflow.com/search?q='
+      },
+      WolframAlpha: {
+        title: 'Wolfram Alpha',
+        value: 'WolframAlpha',
+        icon: ':iconfont icon-WolframAlpha',
+        desktop: 'http://www.wolframalpha.com/input/?i=',
+        mobile: 'http://m.wolframalpha.com/input/?i='
       }
     },
     searchEngine: 'Google',
@@ -173,6 +173,7 @@ const store = () => new Vuex.Store({
       state.user.avatar = val.avatar
     },
     logout (state) {
+      localStorage.clear()
       state.loginState = false
     }
   }

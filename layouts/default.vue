@@ -71,5 +71,19 @@
     z-index 2
 
   input.mu-text-field-input.input-text
-    color: #fff !important
+    color #fff !important
+    background-color rgba(0,0,0,0.5)
+    margin-bottom 0.5vmin
+    height 2.4rem
+    border-radius 3px
+    padding-left 2vmin
+    text-align center
+
+  div.mu-text-field-label.float
+    padding-left 2vmin
+    padding-bottom 0.5vmin
+    color #fff !important
+
+  hr.mu-text-field-line
+    background-color #fff !important
 </style>
