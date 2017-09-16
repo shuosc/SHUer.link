@@ -80,7 +80,7 @@
     text-align center
 
   div.mu-text-field-label.float
-    padding-left 2vmin
+    padding-left 4vmin
     padding-bottom 0.5vmin
     color #fff !important
 
