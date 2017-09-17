@@ -12,18 +12,16 @@
             <div @mouseleave="onMouseOut" id="list">
               <mu-menu-item v-for="searchEngine in searchEngines"
                             :title="searchEngine.title" :rightIcon="searchEngine.icon"
-                            :value="searchEngine.value" :key="searchEngine.value"
-              />
+                            :value="searchEngine.value" :key="searchEngine.value" />
             </div>
           </mu-icon-menu>
-          <mu-auto-complete id="input" label="搜索" v-model="searchString" labelFloat
-                            @keyup.enter="searchContent" :dataSource="autoComplete"
-                            @input="searchTextChange" @change="handleSearchChange"
-                            fullWidth :required="true" type="search"
-                            :inputClass="inputText" :maxHeight="200" />
-          <mu-raised-button class="search-button" label="搜索"
-                            icon=":iconfont icon-search" secondary @click="searchContent"
-          />
+          <mu-auto-complete id="input" label="搜索" v-model="searchString" labelFloat filter="noFilter"
+                            @keyup.enter="searchContent" :dataSource="autoComplete" @input="searchTextChange"
+                            @change="handleSearchChange" fullWidth :required="true" type="search" scroller
+                            :inputClass="'input-text'" :maxHeight="200" :labelClass="'inputLabel'"
+                            :underlineClass="'searchUnderline'" />
+          <mu-raised-button class="search-button" label="搜索" icon=":iconfont icon-search" primary
+                            @click="searchContent" />
         </div>
       </mu-col>
       <mu-col width="0" tablet="10" desktop="20"></mu-col>
@@ -37,7 +35,6 @@
     data: function () {
       return {
         searchString: '',
-        inputText: 'input-text',
         autoComplete: []
       }
     },
@@ -49,13 +46,16 @@
         }
       },
       searchTextChange: function () {
+        if (this.searchString === '' || !this.$store.state.user.settings.autoComplete) return
         axios.get(`/qsonhs.aspx?type=json&q=${this.searchString}`)
           .then((response) => {
             this.autoComplete = []
             response.data.AS.Results[ 0 ].Suggests.forEach((element) => {
               this.autoComplete.push(element.Txt)
             })
-            console.log(this.autoComplete)
+          })
+          .catch((error) => {
+            console.log(error)
           })
       },
       handleSearchChange: function (val) {
@@ -112,4 +112,7 @@
 
   .search-button
     height 40px
+
+  hr.mu-text-field-line.searchUnderline
+    background-color #fff
 </style>

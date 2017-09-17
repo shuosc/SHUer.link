@@ -6,7 +6,6 @@
     <nuxt />
   </div>
 </template>
-
 <script type="text/ecmascript-6">
   import sidebar from '~/components/sidebar.vue'
   import navbar from '~/components/navbar.vue'
@@ -20,6 +19,8 @@
     },
     mounted: function () {
       this.$store.commit('detectDevice')
+      let wallpaperNumber = Math.ceil(11 * Math.random())
+      document.body.style.backgroundImage = `url("https://static.shuhelper.cn/background/SHU/bg${wallpaperNumber}.jpg")`
     },
     methods: {
       toggleSidebar: function () {
@@ -28,7 +29,6 @@
     }
   }
 </script>
-
 <style lang="stylus">
   html
     font-family "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif
@@ -51,12 +51,10 @@
     width 100%
     height 100%
     margin 0
-    background-image url("~assets/background-image/bg5.jpg")
     background-repeat no-repeat
     background-size cover
     background-position bottom
     color #fff
-
 
   div.layout
     height 100%
@@ -72,18 +70,16 @@
 
   input.mu-text-field-input.input-text
     color #fff !important
-    background-color rgba(0,0,0,0.5)
+    background-color rgba(0, 0, 0, 0.7)
     margin-bottom 0.5vmin
     height 2.4rem
     border-radius 3px
     padding-left 2vmin
-    text-align center
 
   div.mu-text-field-label.float
-    padding-left 4vmin
+    padding-left 15px
     padding-bottom 0.5vmin
     color #fff !important
-
-  hr.mu-text-field-line
-    background-color #fff !important
+    .inputLabel
+      color #fff !important
 </style>

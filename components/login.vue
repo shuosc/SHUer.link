@@ -17,12 +17,11 @@
       </div>
       <div class="center">
         <mu-checkbox label="记住我" v-model="rememberMe" />
-        <mu-raised-button label="登录" icon=":iconfont icon-login" secondary @click="login" />
+        <mu-raised-button label="登录" icon=":iconfont icon-login" primary @click="login" />
       </div>
     </mu-drawer>
   </div>
 </template>
-
 <script type="text/ecmascript-6">
   import axios from 'axios'
 
@@ -40,13 +39,21 @@
       }
     },
     mounted: function () {
-      if (localStorage.card_id && localStorage.password) {
-        this.student.card_id = localStorage.card_id
-        this.student.password = localStorage.password
+      if (localStorage.user) {
+        let user = JSON.parse(localStorage.user)
+        this.student.card_id = user.card_id
+        this.student.password = user.password
         axios.post('/api/v1/users/login/', this.student)
           .then((response) => {
-            console.log(response)
-            this.$store.commit('login', response.data)
+            this.$store.commit({
+              type: 'login',
+              card_id: this.student.card_id,
+              password: this.student.password,
+              name: response.data.name,
+              nickname: response.data.nickname,
+              token: response.data.token,
+              avatar: response.data.avatar
+            })
           })
           .catch(() => {
             this.$store.commit('logout')
@@ -71,10 +78,18 @@
         }
         axios.post('/api/v1/users/login/', this.student)
           .then((response) => {
-            this.$store.commit('login', response.data)
+            this.$store.commit({
+              type: 'login',
+              card_id: this.student.card_id,
+              password: this.student.password,
+              name: response.data.name,
+              nickname: response.data.nickname,
+              token: response.data.token,
+              avatar: response.data.avatar
+            })
             if (this.rememberMe === true) {
-              localStorage.card_id = this.student.card_id
-              localStorage.password = this.student.password
+              let user = JSON.stringify(this.$store.state.user)
+              localStorage.setItem('user', user)
             }
           })
           .catch(() => {
@@ -84,7 +99,6 @@
     }
   }
 </script>
-
 <style lang="stylus" scoped>
   .center
     display flex

@@ -1,17 +1,98 @@
 import Vuex from 'vuex'
 /* eslint-disable */
 
+import purple from '!raw-loader!!muse-ui/dist/theme-default.css'
+import blue from '!raw-loader!!muse-ui/dist/theme-light.css'
+import black from '!raw-loader!!muse-ui/dist/theme-carbon.css'
+import green from '!raw-loader!!muse-ui/dist/theme-teal.css'
+
 const store = () => new Vuex.Store({
   state: {
     user: {
       name: '',
       nickname: '',
+      password: '',
+      card_id: '',
       token: '',
-      avatar: ''
+      avatar: '',
+      settings: {
+        autoChangeWallpaper: false,
+        autoComplete: true,
+        changeTime: '',
+        theme: 'black',
+        defaultSearchEngine: 'Google',
+        defaultWikiLanguage: 'en',
+        wallpaperCategory: {
+          SHU: true,
+          others: false
+        }
+      }
     },
-    device: '',
+    themes: {
+      black,
+      purple,
+      blue,
+      green
+    },
+    device: false,
     sidebarState: false,
     loginState: false,
+    searchEngine: 'Google',
+    icon: ':iconfont icon-Google',
+    wikiLanguages: {
+      zh: {
+        title: '中文',
+        value: 'zh'
+      },
+      en: {
+        title: 'English',
+        value: 'en'
+      },
+      es: {
+        title: 'Español',
+        value: 'es'
+      },
+      de: {
+        title: 'Deutsch',
+        value: 'de'
+      },
+      fr: {
+        title: 'Français',
+        value: 'fr'
+      },
+      ja: {
+        title: '日本語',
+        value: 'ja'
+      },
+      ru: {
+        title: 'Русский',
+        value: 'ru'
+      },
+      nl: {
+        title: 'Nederlands',
+        value: 'nl'
+      },
+      it: {
+        title: 'Italiano',
+        value: 'it'
+      },
+      sv: {
+        title: 'Svenska',
+        value: 'sv'
+      },
+      ar: {
+        title: 'العربية',
+        value: 'ar'
+      },
+      vi: {
+        title: 'Tiếng Việt',
+        value: 'vi'
+      },
+      uk: {
+        title: 'Українська',
+        value: 'uk'
+      }
+    },
     searchEngines: {
       Google: {
         title: '谷歌',
@@ -61,6 +142,13 @@ const store = () => new Vuex.Store({
         icon: ':iconfont icon-GoogleScholar',
         desktop: 'https://scholar.google.com/scholar?hl=zh-CN&q=',
         mobile: 'https://scholar.google.com/scholar?hl=zh-CN&q='
+      },
+      WolframAlpha: {
+        title: 'Wolfram Alpha',
+        value: 'WolframAlpha',
+        icon: ':iconfont icon-WolframAlpha',
+        desktop: 'http://www.wolframalpha.com/input/?i=',
+        mobile: 'http://m.wolframalpha.com/input/?i='
       },
       Zhihu: {
         title: '知乎',
@@ -138,22 +226,10 @@ const store = () => new Vuex.Store({
         icon: ':iconfont icon-StackOverflow',
         desktop: 'https://stackoverflow.com/search?q=',
         mobile: 'https://stackoverflow.com/search?q='
-      },
-      WolframAlpha: {
-        title: 'Wolfram Alpha',
-        value: 'WolframAlpha',
-        icon: ':iconfont icon-WolframAlpha',
-        desktop: 'http://www.wolframalpha.com/input/?i=',
-        mobile: 'http://m.wolframalpha.com/input/?i='
       }
-    },
-    searchEngine: 'Google',
-    icon: ':iconfont icon-Google',
-    settings: {
-      autoChangeWallpaper: true,
-      changeTime: ''
     }
   },
+  getters: {},
   mutations: {
     detectDevice (state) {
       state.device = device.mobile()
@@ -165,18 +241,42 @@ const store = () => new Vuex.Store({
       state.searchEngine = val
       state.icon = ':iconfont icon-' + val
     },
-    login (state, val) {
+    login (state, payload) {
       state.loginState = true
-      state.user.name = val.name
-      state.user.nickname = val.nickname
-      state.user.token = val.token
-      state.user.avatar = val.avatar
+      state.user.card_id = payload.card_id
+      state.user.password = payload.password
+      state.user.name = payload.name
+      state.user.nickname = payload.nickname
+      state.user.token = payload.token
+      state.user.avatar = payload.avatar
     },
     logout (state) {
       localStorage.clear()
       state.loginState = false
+    },
+    changeTheme (state, theme) {
+      state.user.settings.theme = theme
+      const themeId = 'muse-theme'
+      if (document.getElementById(themeId)) {
+        document.getElementById(themeId).innerHTML = state.themes[ theme ] || ''
+      } else {
+        const styleEl = document.createElement('style')
+        styleEl.id = themeId
+        document.body.appendChild(styleEl)
+        styleEl.innerHTML = state.themes[ theme ] || ''
+      }
+    },
+    toggleSelect (state, key) {
+      state.user.settings[ key ] = !state.user.settings[ key ]
+    },
+    toggleSecondSelect (state, payload) {
+      state.user.settings[ payload.key1 ][ payload.key2 ] = !state.user.settings[ payload.key1 ][ payload.key2 ]
+    },
+    changeRadioCheck (state, payload) {
+      state.user.settings[ payload.set ] = payload.val
     }
-  }
+  },
+  actions: {}
 })
 
 export default store
