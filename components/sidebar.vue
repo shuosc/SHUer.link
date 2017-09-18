@@ -108,6 +108,7 @@
             set: 'autoChangeWallpaper',
             val: val
           })
+          this.$store.commit('saveChanges')
         }
       },
       autoComplete: {
@@ -120,6 +121,7 @@
             set: 'autoComplete',
             val: val
           })
+          this.$store.commit('saveChanges')
         }
       },
       changeWallpaperTime: {
@@ -133,6 +135,7 @@
             set: 'changeWallpaperTime',
             val: val
           })
+          this.$store.commit('saveChanges')
         }
       },
       wallpaperCategorySHU: {
@@ -146,6 +149,7 @@
             set2: 'SHU',
             val: val
           })
+          this.$store.commit('saveChanges')
         }
       },
       wallpaperCategoryOthers: {
@@ -159,6 +163,7 @@
             set2: 'others',
             val: val
           })
+          this.$store.commit('saveChanges')
         }
       },
       changeTheme: {
@@ -167,6 +172,7 @@
         },
         set (val) {
           this.$store.commit('changeTheme', val)
+          this.$store.commit('saveChanges')
         }
       },
       defaultSearchEngine: {
@@ -180,6 +186,7 @@
             val: val
           })
           this.$store.commit('changeSearchEngine', val)
+          this.$store.commit('saveChanges')
         }
       },
       defaultWikiLanguage: {
@@ -193,6 +200,7 @@
             val: val
           })
           this.$store.commit('changeWikiLanguage', val)
+          this.$store.commit('saveChanges')
         }
       }
     }

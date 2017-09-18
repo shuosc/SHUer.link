@@ -5,6 +5,7 @@ import purple from '!raw-loader!!muse-ui/dist/theme-default.css'
 import blue from '!raw-loader!!muse-ui/dist/theme-light.css'
 import black from '!raw-loader!!muse-ui/dist/theme-carbon.css'
 import green from '!raw-loader!!muse-ui/dist/theme-teal.css'
+import axios from 'axios'
 
 const store = () => new Vuex.Store({
   state: {
@@ -289,8 +290,25 @@ const store = () => new Vuex.Store({
       let user = JSON.stringify(state.user)
       localStorage.setItem('user', user)
     },
-    readLocalSettings (state, set) {
+    initSettings (state, set) {
       state.user.settings = set
+      state.searchEngine = state.user.settings.defaultSearchEngine
+      state.icon = state.searchEngines[ state.settings.defaultSearchEngine ].icon
+      state.searchEngines.Wikipedia.desktop = `https://${state.settings.defaultWikiLanguage}.m.wikipedia.org/w/index.php?search=`
+      state.searchEngines.Wikipedia.mobile = `https://${state.settings.defaultWikiLanguage}.m.wikipedia.org/w/index.php?search=`
+      if (document.getElementById('muse-theme')) {
+        document.getElementById('muse-theme').innerHTML = state.themes[ state.user.settings.theme ] || ''
+      } else {
+        const styleEl = document.createElement('style')
+        styleEl.id = 'muse-theme'
+        document.body.appendChild(styleEl)
+        styleEl.innerHTML = state.themes[ state.user.settings.theme ] || ''
+      }
+    },
+    saveChanges (state) {
+      axios.patch(`/api/v1/${state.user.card_id}/custom`, {
+        shuerlink: state.user.settings
+      })
     }
   },
   actions: {}

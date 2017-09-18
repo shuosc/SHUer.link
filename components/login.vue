@@ -54,6 +54,7 @@
               token: response.data.token,
               avatar: response.data.avatar
             })
+            this.$store.commit('initSettings', response.data.custom.shuerlink)
           })
           .catch(() => {
             this.$store.commit('logout')
