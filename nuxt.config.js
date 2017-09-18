@@ -9,12 +9,14 @@ module.exports = {
       },
       { hid: 'description', name: 'description', content: 'SHUer navigation' },
       { name: 'render', content: 'webkit' }, // 强制国产双核浏览器使用Webkit内核渲染
-      { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge,chrome=1' }
+      { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge,chrome=1' },
+      { name: 'apple-mobile-web-app-title', content: 'SHUer.link' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'shortcut icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://at.alicdn.com/t/font_395504_pa6kqe8ehe5c23xr.css' }
+      { rel: 'stylesheet', href: 'https://at.alicdn.com/t/font_395504_pa6kqe8ehe5c23xr.css' },
+      { rel: 'apple-touch-icon', href: '/apple-touch.png' }
     ],
     script: [
       { src: 'https://cdn.bootcss.com/device.js/0.2.7/device.min.js' }

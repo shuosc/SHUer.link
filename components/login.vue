@@ -89,8 +89,12 @@
               token: response.data.token,
               avatar: response.data.avatar
             })
-            let settings = JSON.parse(response.data.custom).shuerlink
-            this.$store.commit('initSettings', settings)
+            if (!JSON.parse(response.data.custom).shuerlink) {
+              this.$store.commit('saveChanges')
+            } else {
+              let settings = JSON.parse(response.data.custom).shuerlink
+              this.$store.commit('initSettings', settings)
+            }
             if (this.rememberMe === true) {
               let user = JSON.stringify(this.$store.state.user)
               localStorage.setItem('user', user)
