@@ -266,36 +266,26 @@ const store = () => new Vuex.Store({
         document.body.appendChild(styleEl)
         styleEl.innerHTML = state.themes[ theme ] || ''
       }
-      let user = JSON.stringify(state.user)
-      localStorage.setItem('user', user)
     },
     toggleSelect (state, payload) {
       state.user.settings[ payload.set ] = payload.val
-      let user = JSON.stringify(state.user)
-      localStorage.setItem('user', user)
     },
     toggleSecondSelect (state, payload) {
       state.user.settings[ payload.set1 ][ payload.set2 ] = payload.val
-      let user = JSON.stringify(state.user)
-      localStorage.setItem('user', user)
     },
     changeRadioCheck (state, payload) {
       state.user.settings[ payload.set ] = payload.val
-      let user = JSON.stringify(state.user)
-      localStorage.setItem('user', user)
     },
     changeWikiLanguage (state, val) {
       state.searchEngines.Wikipedia.desktop = `https://${val}.m.wikipedia.org/w/index.php?search=`
       state.searchEngines.Wikipedia.mobile = `https://${val}.m.wikipedia.org/w/index.php?search=`
-      let user = JSON.stringify(state.user)
-      localStorage.setItem('user', user)
     },
     initSettings (state, set) {
       state.user.settings = set
       state.searchEngine = state.user.settings.defaultSearchEngine
-      state.icon = state.searchEngines[ state.settings.defaultSearchEngine ].icon
-      state.searchEngines.Wikipedia.desktop = `https://${state.settings.defaultWikiLanguage}.m.wikipedia.org/w/index.php?search=`
-      state.searchEngines.Wikipedia.mobile = `https://${state.settings.defaultWikiLanguage}.m.wikipedia.org/w/index.php?search=`
+      state.icon = state.searchEngines[ state.user.settings.defaultSearchEngine ].icon
+      state.searchEngines.Wikipedia.desktop = `https://${state.user.settings.defaultWikiLanguage}.m.wikipedia.org/w/index.php?search=`
+      state.searchEngines.Wikipedia.mobile = `https://${state.user.settings.defaultWikiLanguage}.m.wikipedia.org/w/index.php?search=`
       if (document.getElementById('muse-theme')) {
         document.getElementById('muse-theme').innerHTML = state.themes[ state.user.settings.theme ] || ''
       } else {
@@ -306,7 +296,7 @@ const store = () => new Vuex.Store({
       }
     },
     saveChanges (state) {
-      axios.patch(`/api/v1/${state.user.card_id}/custom`, {
+      axios.patch(`/api/v1/users/${state.user.card_id}/custom`, {
         shuerlink: state.user.settings
       })
     }

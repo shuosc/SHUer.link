@@ -13,7 +13,8 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://at.alicdn.com/t/font_395504_6rjoalrk4y8hbyb9.css' }
+      { rel: 'shortcut icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://at.alicdn.com/t/font_395504_pa6kqe8ehe5c23xr.css' }
     ],
     script: [
       { src: 'https://cdn.bootcss.com/device.js/0.2.7/device.min.js' }

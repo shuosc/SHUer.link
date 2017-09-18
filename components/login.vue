@@ -54,7 +54,7 @@
               token: response.data.token,
               avatar: response.data.avatar
             })
-            this.$store.commit('initSettings', response.data.custom.shuerlink)
+            this.$store.commit('initSettings', JSON.parse(response.data.custom).shuerlink)
           })
           .catch(() => {
             this.$store.commit('logout')
@@ -79,6 +79,7 @@
         }
         axios.post('/api/v1/users/login/', this.student)
           .then((response) => {
+            console.log(response)
             this.$store.commit({
               type: 'login',
               card_id: this.student.card_id,
@@ -88,6 +89,8 @@
               token: response.data.token,
               avatar: response.data.avatar
             })
+            let settings = JSON.parse(response.data.custom).shuerlink
+            this.$store.commit('initSettings', settings)
             if (this.rememberMe === true) {
               let user = JSON.stringify(this.$store.state.user)
               localStorage.setItem('user', user)

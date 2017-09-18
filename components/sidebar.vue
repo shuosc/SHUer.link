@@ -74,6 +74,9 @@
           </mu-list-item>
         </mu-list-item>
       </mu-list>
+      <div class="center">
+        <mu-raised-button label="退出登录" icon=":iconfont icon-logout" primary @click="logout" />
+      </div>
     </mu-drawer>
   </div>
 </template>
@@ -89,6 +92,9 @@
     methods: {
       toggleSidebar: function () {
         this.$store.commit('changeSidebar')
+      },
+      logout: function () {
+        this.$store.commit('logout')
       }
     },
     computed: {
