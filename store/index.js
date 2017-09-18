@@ -18,7 +18,7 @@ const store = () => new Vuex.Store({
       settings: {
         autoChangeWallpaper: false,
         autoComplete: true,
-        changeTime: '',
+        changeWallpaperTime: 'everyDay',
         theme: 'black',
         defaultSearchEngine: 'Google',
         defaultWikiLanguage: 'en',
@@ -265,15 +265,32 @@ const store = () => new Vuex.Store({
         document.body.appendChild(styleEl)
         styleEl.innerHTML = state.themes[ theme ] || ''
       }
+      let user = JSON.stringify(state.user)
+      localStorage.setItem('user', user)
     },
-    toggleSelect (state, key) {
-      state.user.settings[ key ] = !state.user.settings[ key ]
+    toggleSelect (state, payload) {
+      state.user.settings[ payload.set ] = payload.val
+      let user = JSON.stringify(state.user)
+      localStorage.setItem('user', user)
     },
     toggleSecondSelect (state, payload) {
-      state.user.settings[ payload.key1 ][ payload.key2 ] = !state.user.settings[ payload.key1 ][ payload.key2 ]
+      state.user.settings[ payload.set1 ][ payload.set2 ] = payload.val
+      let user = JSON.stringify(state.user)
+      localStorage.setItem('user', user)
     },
     changeRadioCheck (state, payload) {
       state.user.settings[ payload.set ] = payload.val
+      let user = JSON.stringify(state.user)
+      localStorage.setItem('user', user)
+    },
+    changeWikiLanguage (state, val) {
+      state.searchEngines.Wikipedia.desktop = `https://${val}.m.wikipedia.org/w/index.php?search=`
+      state.searchEngines.Wikipedia.mobile = `https://${val}.m.wikipedia.org/w/index.php?search=`
+      let user = JSON.stringify(state.user)
+      localStorage.setItem('user', user)
+    },
+    readLocalSettings (state, set) {
+      state.user.settings = set
     }
   },
   actions: {}

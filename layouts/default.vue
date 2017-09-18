@@ -19,8 +19,8 @@
     },
     mounted: function () {
       this.$store.commit('detectDevice')
-      let wallpaperNumber = Math.ceil(11 * Math.random())
-      document.body.style.backgroundImage = `url("https://static.shuhelper.cn/background/SHU/bg${wallpaperNumber}.jpg")`
+      let wallpaperNumber = Math.ceil(21 * Math.random())
+      document.body.style.backgroundImage = `url("https://static.shuhelper.cn/background/SHU/bg${wallpaperNumber}.jpg?imageslim")`
     },
     methods: {
       toggleSidebar: function () {

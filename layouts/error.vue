@@ -7,7 +7,7 @@
     <div v-else-if="error.statusCode===500">
       <p>服务器错误</p>
       <p>请<a href="mailto:adrianduan@shuhelper.cn">联系管理员</a>排除故障</p></div>
-    <p v-else>应用程序错误</p>
+    <div v-else>应用程序错误</div>
     <br>
 
   </div>
@@ -26,7 +26,7 @@
     flex-direction column
     align-items center
     justify-content center
-    font-size 5vmin
+    font-size 10vmin
     padding-top 30vmin
     text-align center
 
