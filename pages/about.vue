@@ -34,6 +34,7 @@
   .container
     text-align center
     padding-top 15vmin
+    height 100%
 
   .about-paper
     margin-top 5vmin

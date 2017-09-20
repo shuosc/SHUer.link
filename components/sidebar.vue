@@ -74,7 +74,7 @@
           </mu-list-item>
         </mu-list-item>
       </mu-list>
-      <div class="center">
+      <div class="logout">
         <mu-raised-button label="退出登录" icon=":iconfont icon-logout" primary @click="logout" />
       </div>
     </mu-drawer>
@@ -231,4 +231,7 @@
     text-align center
     h3
       padding-bottom 2vmin
+
+  .logout
+    text-align center
 </style>

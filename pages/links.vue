@@ -1,7 +1,6 @@
 <template>
   <div class="links">
     <div class="container">
-
       <mu-paper class="link-paper paper-1" :zDepth="2">
         <div class="link-header">上&nbsp;大</div>
         <mu-raised-button backgroundColor="#1F437C" @click="goWebsite(websites.SHU)">
@@ -27,7 +26,6 @@
           <p>乐乎论坛</p>
         </mu-raised-button>
       </mu-paper>
-
       <mu-paper class="link-paper" :zDepth="2">
         <div class="link-header">学&nbsp;习</div>
         <mu-raised-button backgroundColor="#115FAD" @click="goWebsite(websites.CNKI)">
@@ -74,7 +72,6 @@
           <i class="iconfont icon-StackOverflow"></i>
         </mu-raised-button>
       </mu-paper>
-
       <mu-paper class="link-paper" :zDepth="2">
         <div class="link-header">社&nbsp;交</div>
         <mu-raised-button backgroundColor="#41990C" @click="goWebsite(websites.Wechat)">
@@ -126,7 +123,6 @@
           <i class="iconfont icon-whatsapp"></i>
         </mu-raised-button>
       </mu-paper>
-
       <mu-paper class="link-paper" :zDepth="2">
         <div class="link-header">工&nbsp;具</div>
         <mu-raised-button backgroundColor="#BA2636" @click="goWebsite(websites.railway)">
@@ -174,7 +170,6 @@
           <i class="iconfont icon-QQmail"></i>
         </mu-raised-button>
       </mu-paper>
-
       <mu-paper class="link-paper paper-6" :zDepth="2">
         <div class="link-header">娱&nbsp;乐</div>
         <mu-raised-button backgroundColor="#D43C33" @click="goWebsite(websites.NeteaseMusic)">
@@ -214,7 +209,6 @@
           <i class="iconfont icon-mgtv"></i>
         </mu-raised-button>
       </mu-paper>
-
       <mu-paper class="link-paper paper-4" :zDepth="2">
         <div class="link-header">购&nbsp;物</div>
         <mu-raised-button backgroundColor="#FF4018" @click="goWebsite(websites.Taobao)">
@@ -245,7 +239,6 @@
     </div>
   </div>
 </template>
-
 <script type="text/ecmascript-6">
   export default {
     name: 'links',
@@ -486,7 +479,6 @@
     }
   }
 </script>
-
 <style lang="stylus" rel="stylesheet/stylus" scoped>
   .container
     display flex

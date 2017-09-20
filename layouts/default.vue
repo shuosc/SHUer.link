@@ -54,7 +54,6 @@
     background-repeat no-repeat
     background-size cover
     background-position bottom
-    color #fff
 
   div.layout
     height 100%
@@ -82,4 +81,8 @@
     color #fff !important
     .inputLabel
       color #fff !important
+
+  div.container
+  div.links
+    background rgba(0, 0, 0, 0.3)
 </style>
