@@ -8,8 +8,6 @@
         <div class="search">
           <mu-icon-menu :icon="icon" :autoWidth="true" id="searchIcon" :maxHeight="300" @change="changeSearchEngine"
                         ref="menu" @mouseenter.native="onMouseEnter"
-                        :anchorOrigin="{vertical: 'bottom',horizontal: 'left'}"
-                        :targetOrigin="{vertical: 'top',horizontal: 'left'}"
                         style="color: #ffffff">
             <div @mouseleave="onMouseOut" id="list">
               <mu-menu-item v-for="searchEngine in searchEngines"
