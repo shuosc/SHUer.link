@@ -48,10 +48,10 @@
         }
       },
       searchTextChange: function () {
-        this.autoComplete = []
         if (this.searchString === '' || !this.$store.state.user.settings.autoComplete) return
         axios.get(`/qsonhs.aspx?type=json&q=${this.searchString}`)
           .then((response) => {
+            this.autoComplete = []
             response.data.AS.Results[ 0 ].Suggests.forEach((element) => {
               this.autoComplete.push(element.Txt)
             })
