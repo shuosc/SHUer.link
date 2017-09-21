@@ -21,7 +21,7 @@ const store = () => new Vuex.Store({
         autoChangeWallpaper: false,
         autoComplete: true,
         changeWallpaperTime: 'everyDay',
-        theme: 'black',
+        theme: 'transparent',
         defaultSearchEngine: 'Google',
         defaultWikiLanguage: 'en',
         defaultBackgroundImage: '',
