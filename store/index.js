@@ -5,6 +5,7 @@ import purple from '!raw-loader!!muse-ui/dist/theme-default.css'
 import blue from '!raw-loader!!muse-ui/dist/theme-light.css'
 import black from '!raw-loader!!muse-ui/dist/theme-carbon.css'
 import green from '!raw-loader!!muse-ui/dist/theme-teal.css'
+import transparent from '!raw-loader!!../assets/themes/transparent.css'
 import axios from 'axios'
 
 const store = () => new Vuex.Store({
@@ -23,6 +24,7 @@ const store = () => new Vuex.Store({
         theme: 'black',
         defaultSearchEngine: 'Google',
         defaultWikiLanguage: 'en',
+        defaultBackgroundImage: '',
         wallpaperCategory: {
           SHU: true,
           others: false
@@ -30,6 +32,7 @@ const store = () => new Vuex.Store({
       }
     },
     themes: {
+      transparent,
       black,
       purple,
       blue,

@@ -38,6 +38,9 @@
             </mu-list-item>
           </mu-list-item>
           <mu-list-item title="主题切换" slot="nested" toggleNested :open="false">
+            <mu-list-item title="下雨透" slot="nested" @click="changeTheme='transparent'">
+              <mu-radio nativeValue="transparent" name="theme" v-model="changeTheme" slot="right" />
+            </mu-list-item>
             <mu-list-item title="学长黑" slot="nested" @click="changeTheme='black'">
               <mu-radio nativeValue="black" name="theme" v-model="changeTheme" slot="right" />
             </mu-list-item>
@@ -234,4 +237,5 @@
 
   .logout
     text-align center
+    padding-bottom 30px
 </style>

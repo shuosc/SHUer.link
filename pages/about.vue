@@ -46,7 +46,7 @@
     align-items center
     justify-content center
     flex-wrap nowrap
-    background-color rgba(255, 255, 255, 0.5)
+    background-color rgba(255, 255, 255, 0.4)
 
   .mu-avatar
     margin-top 1vmin
@@ -71,4 +71,5 @@
   h1
     padding 0
     margin 1vmin
+    color #000
 </style>

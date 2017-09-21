@@ -19,7 +19,7 @@
     },
     mounted: function () {
       this.$store.commit('detectDevice')
-      let wallpaperNumber = Math.ceil(21 * Math.random())
+      let wallpaperNumber = Math.ceil(38 * Math.random())
       document.body.style.backgroundImage = `url("https://static.shuhelper.cn/background/SHU/bg${wallpaperNumber}.jpg?imageslim")`
     },
     methods: {
@@ -77,7 +77,6 @@
 
   div.mu-text-field-label.float
     padding-left 15px
-    padding-bottom 0.5vmin
     color #fff !important
     .inputLabel
       color #fff !important
