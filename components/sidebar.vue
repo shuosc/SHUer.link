@@ -224,8 +224,8 @@
     justify-content flex-start
 
   .center
-    padding-top 5vmin
-    padding-bottom 2vmin
+    padding-top 20px
+    padding-bottom 10px
     display flex
     flex-direction column
     flex-wrap wrap
@@ -233,7 +233,7 @@
     justify-content flex-start
     text-align center
     h3
-      padding-bottom 2vmin
+      padding-bottom 10px
 
   .logout
     text-align center
