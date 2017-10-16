@@ -9,6 +9,8 @@
           <a href="https://github.com/AdrianDuan"><p>Adrian</p></a>
           <mu-avatar src="avatar/cosformula.png" :size="60" />
           <a href="https://github.com/cosformula"><p>cosformula</p></a>
+          <mu-avatar src="avatar/VATALU.jpg" :size="60" />
+          <a href="https://github.com/VATALU"><p>VATALU</p></a>
           <h1>GitHub</h1>
           <a href="https://github.com/shuopensourcecommunity/SHUer.link"><i class="iconfont icon-GitHub"></i></a>
           <h1>反馈</h1>
