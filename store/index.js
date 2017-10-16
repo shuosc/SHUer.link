@@ -102,8 +102,8 @@ const store = () => new Vuex.Store({
         title: '谷歌',
         value: 'Google',
         icon: ':iconfont icon-Google',
-        desktop: 'https://g.shuosc.org/search?newwindow=1&hl=zh-CN&q=',
-        mobile: 'https://g.shuosc.org/search?newwindow=1&hl=zh-CN&q='
+        desktop: 'https://www.google.com/search?newwindow=1&hl=zh-CN&q=',
+        mobile: 'https://www.google.com/search?newwindow=1&hl=zh-CN&q='
       },
       Bing: {
         title: '必应',

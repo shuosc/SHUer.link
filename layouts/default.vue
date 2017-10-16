@@ -40,6 +40,10 @@
     -webkit-font-smoothing antialiased
     box-sizing border-box
     height 100%
+    overflow hidden
+
+  ::-webkit-scrollbar
+    display none
 
   *,
   *:before,
