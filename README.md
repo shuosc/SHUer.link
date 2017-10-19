@@ -2,34 +2,42 @@
 
 > Inspired by BYR.wiki
 
-使用Nuxt.js构建的校园导航网站。
+## Build Setup
 
-# 开发
+``` bash
+# install dependencies
+yarn install 
 
-## 安装依赖
+# serve with hot reload at localhost:8080
+yarn run dev
 
-`yarn install` 或者 `npm install`
+# build for production with minification
+yarn run build
 
-## 测试服务器
+# build for production and view the bundle analyzer report
+yarn run build --report
+```
 
-`npm run dev`
-启动测试服务器后可通过`localhost:3000`访问
+## Dependencies
 
+> Vue.js
 
-# 完成度
+> Vue-Router
 
-- [x] 首页布局
-- [x] 首页背景
-- [x] 搜索框
-- [x] 导航网站
-- [x] 主题切换
-- [x] 搜索补全
-- [x] 登陆／设置同步
-- [x] chrome插件
-- [ ] 快捷键
+> Vuex
 
-# 依赖于
+## Browser Support
 
-* `muse-ui`
-* `Nuxt.js`
-* `Koa.js`
+> Internet Explorer : 11
+
+> Google Chrome : 45+
+
+> Mozilla Firefox : 51+
+
+> Microsoft Edge: 15+
+
+> Apple Safari: 8+
+
+> Android: 6.0+
+
+> iOS: 10+
