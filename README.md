@@ -22,17 +22,17 @@ yarn run build --report
 
 > Vue.js
 
-> Vue-Router
+> Vue-Router
 
 > Vuex
 
-## Browser Support
+## Browser Support
 
 > Internet Explorer : 11
 
 > Google Chrome : 45+
 
-> Mozilla Firefox : 51+
+> Mozilla Firefox : 51+
 
 > Microsoft Edge: 15+
 
