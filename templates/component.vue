@@ -1,14 +1,14 @@
-<template>
-  <div></div>
+<template lang="pug">
+  div
 </template>
 
 <script>
-export default {
-  data () {
-    return {}
+  export default {
+    data() {
+      return {}
+    }
   }
-}
 </script>
 
-<style>
+<style lang="stylus">
 </style>

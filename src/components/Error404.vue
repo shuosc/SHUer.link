@@ -1,41 +1,26 @@
-<template>
-  <div class="error-page window-height window-width bg-light column items-center no-wrap">
-    <div class="error-code bg-primary flex items-center content-center justify-center">
-      404
-    </div>
-    <div>
-      <div class="error-card shadow-4 bg-white column items-center justify-center no-wrap">
-        <q-icon name="error_outline" color="grey-5" />
-        <p class="caption text-center">您访问的页面似乎被吃掉了(╯&gt;д&lt;)╯</p>
-        <p class="text-center group">
-          <q-btn v-if="canGoBack" color="primary" push @click="goBack" icon="keyboard_arrow_left">
-            返回上级页面
-          </q-btn>
-          <q-btn color="primary" push @click="$router.replace('/')" icon-right="home">
-            返回主页
-          </q-btn>
-        </p>
-      </div>
-    </div>
-  </div>
+<template lang="pug">
+  div.error-page.window-height.window-width.bg-light.column.items-center.no-wrap
+    div.error-code.bg-primary.flex.items-center.content-center.justify-center 404
+    div
+      div.error-card.shadow-4.bg-white.column.items-center.justify-center.no-wrap
+        q-icon(name='error_outline', color='grey-5')
+        p.caption.text-center 您访问的页面似乎被吃掉了(╯&gt;д&lt;)╯
+        p.text-center.group
+          q-btn(v-if='canGoBack', color='primary', push, @click='goBack', icon='keyboard_arrow_left') 返回前页
+          q-btn(color='primary', push, @click="$router.replace('/')", icon-right='home') 返回主页
 </template>
 
 <script>
-  import { QBtn, QIcon } from 'quasar'
-
   export default {
-    components: {
-      QBtn,
-      QIcon
+    name: '404Error',
+    methods: {
+      goBack() {
+        window.history.go(-1)
+      }
     },
     data() {
       return {
         canGoBack: window.history.length > 1
-      }
-    },
-    methods: {
-      goBack() {
-        window.history.go(-1)
       }
     }
   }
