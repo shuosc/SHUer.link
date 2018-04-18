@@ -1,35 +1,20 @@
-<template lang='pug'>
-  div#q-app
-    q-layout(ref="layout", view="lHr Lpr fff", :right-class="{'bg-grey-2': true}")
-      q-toolbar(slot="header")
-        q-toolbar-title {{title}}
-        q-btn(flat, @click="$refs.layout.toggleRight()")
-          q-icon(name="settings")
-      router-view
-      div(slot="right")
-        right-panel
+<template lang="pug">
+  index
 </template>
 
 <script>
-  import RightPanel from '@/RightPanel'
-
+  import Index from "./components/Index";
   export default {
-    name: 'app',
-    data() {
-      return {
-        title: 'SHUer.link'
-      }
-    },
-    components: {
-      RightPanel
-    }
-  }
+    name: "App",
+    components: { Index }
+  };
 </script>
 
 <style lang="stylus">
-  body
-    height 100%
-
-  .center
-    text-align center
+  #app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #d9d9d9;
+  }
 </style>

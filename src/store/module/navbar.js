@@ -1,11 +1,9 @@
 const state = {
-  loginState: false,
-  username: '',
-  password: ''
+  activeItem: 'search'
 }
 
 const getters = {
-  loginState: state => state.loginState
+  activeItem: state => state.activeItem
 }
 
 // const actions = {
@@ -18,15 +16,13 @@ const getters = {
 // }
 
 const mutations = {
-  login(state) {
-    state.loginState = true
-  },
-  logout(state) {
-    state.loginState = false
+  changeNavItem(state, payload) {
+    state.activeItem = payload.nav
   }
 }
 
 export default {
+  namespaced: true,
   state,
   getters,
   // actions,

@@ -1,77 +1,60 @@
-var
-  path = require('path'),
-  webpack = require('webpack'),
-  config = require('../config'),
-  cssUtils = require('./css-utils'),
-  env = require('./env-utils'),
-  merge = require('webpack-merge'),
-  projectRoot = path.resolve(__dirname, '../'),
-  ProgressBarPlugin = require('progress-bar-webpack-plugin'),
-  useCssSourceMap =
-    (env.dev && config.dev.cssSourceMap) ||
-    (env.prod && config.build.productionSourceMap)
+'use strict'
+const path = require('path')
+const utils = require('./utils')
+const config = require('../config')
+const vueLoaderConfig = require('./vue-loader.conf')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
+
+
 module.exports = {
+  context: path.resolve(__dirname, '../'),
   entry: {
     app: './src/main.js'
   },
   output: {
-    path: path.resolve(__dirname, '../dist'),
-    publicPath: config[env.prod ? 'build' : 'dev'].publicPath,
-    filename: 'js/[name].js',
-    chunkFilename: 'js/[id].[chunkhash].js'
+    path: config.build.assetsRoot,
+    filename: '[name].js',
+    publicPath: process.env.NODE_ENV === 'production'
+      ? config.build.assetsPublicPath
+      : config.dev.assetsPublicPath
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
-    modules: [
-      resolve('src'),
-      resolve('node_modules')
-    ],
-    alias: config.aliases
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js',
+      '@': resolve('src'),
+    }
   },
   module: {
     rules: [
-      { // eslint
-        enforce: 'pre',
-        test: /\.(vue|js)$/,
-        loader: 'eslint-loader',
-        include: projectRoot,
-        exclude: /node_modules/,
-        options: {
-          formatter: require('eslint-friendly-formatter')
-        }
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: vueLoaderConfig
       },
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: projectRoot,
-        exclude: /node_modules/
-      },
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          postcss: cssUtils.postcss,
-          loaders: merge({js: 'babel-loader'}, cssUtils.styleLoaders({
-            sourceMap: useCssSourceMap,
-            extract: env.prod
-          }))
-        }
-      },
-      {
-        test: /\.json$/,
-        loader: 'json-loader'
+        include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'img/[name].[hash:7].[ext]'
+          name: utils.assetsPath('img/[name].[hash:7].[ext]')
+        }
+      },
+      {
+        test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: utils.assetsPath('media/[name].[hash:7].[ext]')
         }
       },
       {
@@ -79,30 +62,21 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'fonts/[name].[hash:7].[ext]'
+          name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       }
     ]
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env': config[env.prod ? 'build' : 'dev'].env,
-      'DEV': env.dev,
-      'PROD': env.prod,
-      '__THEME': '"' + env.platform.theme + '"'
-    }),
-    new webpack.LoaderOptionsPlugin({
-      minimize: env.prod,
-      options: {
-        context: path.resolve(__dirname, '../src'),
-        postcss: cssUtils.postcss
-      }
-    }),
-    new ProgressBarPlugin({
-      format: config.progressFormat
-    })
-  ],
-  performance: {
-    hints: false
+  node: {
+    // prevent webpack from injecting useless setImmediate polyfill because Vue
+    // source contains it (although only uses it if it's native).
+    setImmediate: false,
+    // prevent webpack from injecting mocks to Node native modules
+    // that does not make sense for the client
+    dgram: 'empty',
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty',
+    child_process: 'empty'
   }
 }

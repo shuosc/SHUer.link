@@ -21,16 +21,18 @@ module.exports = {
   rules: {
     // allow paren-less arrow functions
     'arrow-parens': 0,
-    'one-var': 0,
-    'import/first': 0,
-    'import/named': 2,
-    'import/namespace': 2,
-    'import/default': 2,
-    'import/export': 2,
+    // allow async-await
+    'generator-star-spacing': 0,
     // allow debugger during development
+    'space-before-function-paren': [
+      'error',
+      {
+        anonymous: 'ignore',
+        named: 'ignore'
+      }
+    ],
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
-    // 'brace-style': [2, 'stroustrup', { allowSingleLine: true }],
-    'space-before-function-paren': ['error', 'never'],
-    'brace-style': ['error', '1tbs', { allowSingleLine: true }]
+    semi: ['error', 'always'],
+    quotes: ['error', 'double']
   }
 }
