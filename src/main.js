@@ -9,7 +9,7 @@ import './style/transparent.css'
 import './style/iconfont.css'
 
 Vue.config.productionTip = false
-Vue.prototype.$htpp = axios
+Vue.prototype.$http = axios
 Vue.use(MuseUI)
 
 new Vue({

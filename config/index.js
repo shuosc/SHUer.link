@@ -11,12 +11,20 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/api': {
+      '/api/v2': {
         target: 'https://shuer.link/',
         changeOrigin: true,
         // secure: false,
         pathRewrite: {
-          '^/api': 'api/v2/'
+          '^/api/v2': 'api/v2/'
+        },
+      },
+      '/search': {
+        target: 'https://shuer.link/',
+        changeOrigin: true,
+        // secure: false,
+        pathRewrite: {
+          '^/search': 'search/'
         }
       }
     },
@@ -29,7 +37,7 @@ module.exports = {
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
-    
+
     /**
      * Source Maps
      */

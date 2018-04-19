@@ -11,8 +11,17 @@
 <script>
   export default {
     name: "Navbar",
-    methods: {
-    }
+    methods: {},
+    // mounted() {
+    //   this.$http
+    //     .get("search/webpage?keyword=可达鸭")
+    //     .then(res => {
+    //       console.log(res);
+    //     })
+    //     .catch(err => {
+    //       console.log(err);
+    //     });
+    // }
   };
 </script>
 
