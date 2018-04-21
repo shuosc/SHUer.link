@@ -1,19 +1,16 @@
 <template lang="pug">
   mu-card
-    mu-card-header.title(:title="title",
-                        :subTitle="'搜索来源：' + searchEngine + '\t' + '搜索指数：' + score")
+    mu-card-header.title(:title="title")
     mu-card-text
-      p {{description}}
+      p(v-html="content")
 </template>
-
 
 <script>
   export default {
-    name: "CardWebpage",
-    props: ["searchEngine", "title", "score", "description"]
+    name: "CardSchool",
+    props: ["title", "content"]
   };
 </script>
-
 
 <style lang="stylus" scoped>
   .mu-card {

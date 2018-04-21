@@ -4,6 +4,7 @@ import Index from '@/components/Index'
 import Discover from '@/components/Discover'
 import About from '@/components/About'
 import Result from '@/components/Result'
+import SchoolSearch from '@/components/SchoolSearch'
 
 Vue.use(Router)
 
@@ -30,6 +31,11 @@ export default new Router({
       path: '/result',
       name: 'Result',
       component: Result
+    },
+    {
+      path: '/schoolsearch',
+      name: 'SchoolSearch',
+      component: SchoolSearch
     }
   ]
 })

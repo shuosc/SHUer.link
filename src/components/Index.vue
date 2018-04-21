@@ -9,6 +9,12 @@
       .logo
         img(src="../assets/shuerlink.png",@click="$store.commit('settings/toggleSearch')")
       km-search-input
+      .circle-progress(v-if="loading",style="text-align:center")
+        mu-circular-progress(:size="60",:strokeWidth="6")
+      mu-popup(position="top",
+              :overlay="false",
+              :open="error",
+              popupClass="popup-top") 网络错误
 </template>
 
 <script>
@@ -19,9 +25,35 @@
       KmSearchInput
     },
     methods: {
+      search() {
+        const str = this.$store.state.search.searchString;
+        this.$store.commit("search/clearResults");
+        this.loading = true;
+        this.$http
+          .get("search/webpage", {
+            params: {
+              keyword: str
+            }
+          })
+          .then(res => {
+            this.loading = false;
+            this.$router.push("/result");
+            this.$store.commit("search/setWebpages", res.data);
+          })
+          .catch(err => {
+            console.log(err);
+            this.loading = false;
+            this.error = true;
+            setTimeout(() => {
+              this.error = false;
+            }, 2000);
+          });
+      }
     },
     data() {
       return {
+        loading: false,
+        error: false
       };
     }
   };

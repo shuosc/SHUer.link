@@ -95,4 +95,25 @@
     transform: translateX(10px);
     opacity: 0;
   }
+
+  em {
+    color: #ff4081 !important;
+  }
+
+  .popup-top {
+    width: 100%;
+    opacity: 0.8;
+    height: 48px;
+    line-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 375px;
+    background-color: #000000;
+  }
+
+  .circle-progress {
+    margin: 0 auto;
+    width: 10%;
+  }
 </style>

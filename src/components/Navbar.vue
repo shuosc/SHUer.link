@@ -11,7 +11,7 @@
 <script>
   export default {
     name: "Navbar",
-    methods: {},
+    methods: {}
     // mounted() {
     //   this.$http
     //     .get("search/webpage?keyword=可达鸭")
@@ -32,6 +32,11 @@
     cursor: pointer;
 
     @media only screen and (max-width: 500px) {
+      width: 100px;
+      margin: 0;
+    }
+
+    @media only screen and (max-width: 350px) {
       display: none;
     }
   }

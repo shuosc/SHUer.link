@@ -3,10 +3,7 @@ node_modules
 
 # logs
 npm-debug.log
-
-# Nuxt build
-.nuxt
-build
+yarn-error.log
 
 # Nuxt generate
 dist

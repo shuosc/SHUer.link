@@ -6,7 +6,7 @@
                                     v-model="searchString",
                                     :labelFloat="true",
                                     filter="noFilter",
-                                    @keyup.enter="searchContent",
+                                    @keyup.enter.native="searchContent",
                                     :dataSource="autoComplete",
                                     @input="searchTextChange",
                                     :required="true",
@@ -16,8 +16,7 @@
                                     :labelClass="'inputLabel'",
                                     :underlineClass="'searchUnderline'",
                                     name="search",
-                                    :fullWidth="true"
-                                    style="width:60vw")
+                                    :fullWidth="true")
       mu-raised-button.search-button(class="search-button",
                                     label="搜索",
                                     icon=":iconfont icon-search",
@@ -30,17 +29,25 @@
     name: "SearchInput",
     data() {
       return {
-        searchString: "",
         autoComplete: []
       };
     },
     methods: {
       searchContent() {
-        this.$router.push("/result");
-        // this.$router.push("/?src=//www.baidu.com");
+        this.$parent.search();
       },
       searchTextChange() {},
       changeSearchEngine() {}
+    },
+    computed: {
+      searchString: {
+        get() {
+          return this.$store.state.search.searchString;
+        },
+        set(val) {
+          this.$store.commit("search/inputChange", val);
+        }
+      }
     }
   };
 </script>

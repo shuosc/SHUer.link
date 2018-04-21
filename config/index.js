@@ -19,12 +19,28 @@ module.exports = {
           '^/api/v2': 'api/v2/'
         },
       },
+      '/api/v1': {
+        target: 'https://shuer.link/',
+        changeOrigin: true,
+        // secure: false,
+        pathRewrite: {
+          '^/api/v1': 'api/v1/'
+        },
+      },
       '/search': {
         target: 'https://shuer.link/',
         changeOrigin: true,
         // secure: false,
         pathRewrite: {
           '^/search': 'search/'
+        }
+      },
+      '/school': {
+        target: 'https://shuer.link/',
+        changeOrigin: true,
+        // secure: false,
+        pathRewrite: {
+          '^/school': 'school/'
         }
       }
     },
