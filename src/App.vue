@@ -116,4 +116,8 @@
     margin: 0 auto;
     width: 10%;
   }
+
+  .center {
+    text-align: center;
+  }
 </style>

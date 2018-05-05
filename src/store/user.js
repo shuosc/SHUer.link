@@ -64,7 +64,16 @@ const mutations = {
       styleEl.innerHTML = state.themes[state.settings.theme] || ''
     }
   },
-  changeTheme() {}
+  changeTheme(state, val) {
+    if (document.getElementById('muse-theme')) {
+      document.getElementById('muse-theme').innerHTML = state.themes[state.settings.theme] || ''
+    } else {
+      const styleEl = document.createElement('style')
+      styleEl.id = 'muse-theme'
+      document.body.appendChild(styleEl)
+      styleEl.innerHTML = state.themes[state.settings.theme] || ''
+    }
+  }
 }
 
 const actions = {

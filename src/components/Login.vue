@@ -16,13 +16,12 @@
                     :maxLength="8",
                     v-model="student.card_id",
                     type="string")
-      div.password
-        mu-text-field(label="密码",
+      mu-text-field(label="密码",
                       :type="passwordVisible?'text':'password'",
                       :labelFloat="true",
                       v-model="student.password",
                       icon=":iconfont icon-password")
-        mu-checkbox(uncheckIcon=":iconfont icon-invisible",   
+      mu-checkbox(uncheckIcon=":iconfont icon-invisible",   
                     checkedIcon=":iconfont icon-visible",v-model="passwordVisible" )
       .center
         mu-checkbox(label="记住我",v-model="rememberMe")
